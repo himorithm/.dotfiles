@@ -1,0 +1,262 @@
+Feb 29 19:32 : exception: RTIOThread could not get realtime scheduling, continuing anyway: sched_setscheduler failed: Operation not permitted
+Feb 29 19:32 : exception: Failed to open '/home/himanshu/.config/mpd/mpdstate': No such file or directory
+Feb 29 19:32 : update: added /anthony_de_mello_1.mp3
+Feb 29 19:32 : update: added /BestClassicSoftRockSongsOfAllTimeGreatestSoftRockHitsCollectionSkNkYG8vdY.mp3
+Feb 29 19:32 : update: added /#6The10BestofPearlJambO9htD6gT0w.mp3
+Feb 29 19:32 : update: added /anthony_de_mello_7.mp3
+Feb 29 19:32 : update: added /anthony_de_mello_4.mp3
+Feb 29 19:32 : update: added /Scorpions,BonJovi,TheEagles,Aerosmith,U2,LedZeppelinBestSlowRockSongsEver30uELlF5U6o.mp3
+Feb 29 19:32 : update: added /anthony_de_mello_6.mp3
+Feb 29 19:32 : update: added /DheereDheereSeMeriZindagiSonamKapoor,HrithikRoshanYoYoHoneySinghTnf4rgpESbY.mp3
+Feb 29 19:32 : update: added /anthony_de_mello_3.mp3
+Feb 29 19:32 : update: added /Gustakh_dil.mp3
+Feb 29 19:32 : update: added /KabhiAisaLagtaHaiFullSongsJukeboxLuckyAliSuperHitAlbumWzxY4WJQsI.mp3
+Feb 29 19:32 : update: added /AtifAslam,TajdareHaram,CokeStudioSeason8,Episode1.a18py61Fw.mp3
+Feb 29 19:32 : update: added /anthony_de_mello_8.mp3
+Feb 29 19:32 : update: added /TheBeachBoys-GodOnlyKnows.mp3
+Feb 29 19:32 : update: added /anthony_de_mello_2.mp3
+Feb 29 19:32 : update: added /anthony_de_mello_5.mp3
+Feb 29 19:37 : exception: RTIOThread could not get realtime scheduling, continuing anyway: sched_setscheduler failed: Operation not permitted
+Feb 29 19:37 : exception: RTIOThread could not get realtime scheduling, continuing anyway: sched_setscheduler failed: Operation not permitted
+Feb 29 19:40 : exception: RTIOThread could not get realtime scheduling, continuing anyway: sched_setscheduler failed: Operation not permitted
+Feb 29 19:44 : client: [0] opened from 127.0.0.1:37224
+Feb 29 19:44 : exception: Failed to read mixer for 'ALSA sound card': no such mixer control: PCM
+Feb 29 19:44 : client: [1] opened from 127.0.0.1:37226
+Feb 29 19:44 : client: [2] opened from 127.0.0.1:37228
+Feb 29 19:44 : client: [3] opened from 127.0.0.1:37230
+Feb 29 19:44 : client: [4] opened from 127.0.0.1:37232
+Feb 29 19:45 : client: [0] closed
+Feb 29 19:45 : client: [2] closed
+Feb 29 19:45 : client: [3] closed
+Feb 29 19:45 : client: [4] closed
+Feb 29 19:46 : client: [1] closed
+Feb 29 19:46 : client: [5] opened from 127.0.0.1:37248
+Feb 29 19:46 : client: [6] opened from 127.0.0.1:37250
+Feb 29 19:46 : client: [7] opened from 127.0.0.1:37252
+Feb 29 19:46 : client: [5] closed
+Feb 29 19:46 : client: [6] closed
+Feb 29 19:46 : client: [7] closed
+Feb 29 19:46 : client: [8] opened from 127.0.0.1:37254
+Feb 29 19:46 : client: [9] opened from 127.0.0.1:37256
+Feb 29 19:46 : client: [10] opened from 127.0.0.1:37258
+Feb 29 19:46 : client: [11] opened from 127.0.0.1:37260
+Feb 29 19:46 : client: [12] opened from 127.0.0.1:37262
+Feb 29 19:47 : client: [9] closed
+Feb 29 19:47 : client: [12] closed
+Feb 29 19:47 : client: [11] closed
+Feb 29 19:47 : client: [10] closed
+Feb 29 19:47 : client: [8] closed
+Feb 29 19:48 : client: [13] opened from 127.0.0.1:37296
+Feb 29 19:48 : client: [14] opened from 127.0.0.1:37298
+Feb 29 19:48 : client: [15] opened from 127.0.0.1:37300
+Feb 29 19:48 : client: [16] opened from 127.0.0.1:37302
+Feb 29 19:48 : client: [17] opened from 127.0.0.1:37304
+Feb 29 19:49 : client: [13] closed
+Feb 29 19:49 : client: [16] closed
+Feb 29 19:49 : client: [17] closed
+Feb 29 19:49 : client: [14] closed
+Feb 29 19:49 : client: [15] closed
+Feb 29 19:51 : client: [18] opened from 127.0.0.1:37312
+Feb 29 19:51 : exception: OutputThread could not get realtime scheduling, continuing anyway: sched_setscheduler failed: Operation not permitted
+Feb 29 19:51 : exception: Failed to open mixer for 'ALSA sound card': no such mixer control: PCM
+Feb 29 19:51 : exception: OutputThread could not get realtime scheduling, continuing anyway: sched_setscheduler failed: Operation not permitted
+Feb 29 19:51 : alsa_output: Decoder is too slow; playing silence to avoid xrun
+Feb 29 19:51 : alsa_output: Decoder is too slow; playing silence to avoid xrun
+Feb 29 19:51 : player: played "AtifAslam,TajdareHaram,CokeStudioSeason8,Episode1.a18py61Fw.mp3"
+Feb 29 19:51 : client: [18] closed
+Feb 29 19:55 : client: [19] opened from 127.0.0.1:37314
+Feb 29 19:56 : client: [20] opened from 127.0.0.1:37328
+Feb 29 19:56 : exception: Failed to open mixer for 'ALSA sound card': no such mixer control: PCM
+Feb 29 19:56 : alsa_output: Decoder is too slow; playing silence to avoid xrun
+Feb 29 19:56 : player: played "AtifAslam,TajdareHaram,CokeStudioSeason8,Episode1.a18py61Fw.mp3"
+Feb 29 19:56 : client: [20] closed
+Feb 29 19:57 : client: [19] closed
+Feb 29 19:58 : client: [21] opened from 127.0.0.1:37332
+Feb 29 19:58 : client: [22] opened from 127.0.0.1:37336
+Feb 29 19:58 : exception: Failed to open mixer for 'ALSA sound card': no such mixer control: PCM
+Feb 29 19:58 : alsa_output: Decoder is too slow; playing silence to avoid xrun
+Feb 29 19:58 : client: [22] closed
+Feb 29 19:58 : client: [23] opened from 127.0.0.1:37340
+Feb 29 19:58 : player: played "#6The10BestofPearlJambO9htD6gT0w.mp3"
+Feb 29 19:58 : client: [23] closed
+Feb 29 19:59 : client: [24] opened from 127.0.0.1:37342
+Feb 29 19:59 : client: [24] closed
+Feb 29 19:59 : client: [25] opened from 127.0.0.1:37344
+Feb 29 19:59 : client: [26] opened from 127.0.0.1:37346
+Feb 29 19:59 : client: [27] opened from 127.0.0.1:37348
+Feb 29 19:59 : client: [28] opened from 127.0.0.1:37350
+Feb 29 20:00 : client: [25] closed
+Feb 29 20:00 : client: [26] closed
+Feb 29 20:00 : client: [27] closed
+Feb 29 20:00 : client: [28] closed
+Feb 29 20:00 : client: [29] opened from 127.0.0.1:37354
+Feb 29 20:09 : client: [29] closed
+Feb 29 20:10 : client: [30] opened from 127.0.0.1:37516
+Feb 29 20:10 : exception: Failed to open mixer for 'ALSA sound card': no such mixer control: PCM
+Feb 29 20:10 : alsa_output: Decoder is too slow; playing silence to avoid xrun
+Feb 29 20:10 : alsa_output: Decoder is too slow; playing silence to avoid xrun
+Feb 29 20:11 : alsa_output: Decoder is too slow; playing silence to avoid xrun
+Feb 29 20:17 : client: [21] closed
+Feb 29 20:17 : client: [31] opened from 127.0.0.1:37632
+Feb 29 20:19 : client: [31] closed
+Feb 29 20:19 : client: [32] opened from 127.0.0.1:37634
+Feb 29 20:22 : client: [32] closed
+Feb 29 20:22 : client: [33] opened from 127.0.0.1:37638
+Feb 29 20:23 : client: [33] closed
+Feb 29 20:23 : client: [30] closed
+Feb 29 20:23 : player: played "Scorpions,BonJovi,TheEagles,Aerosmith,U2,LedZeppelinBestSlowRockSongsEver30uELlF5U6o.mp3"
+Feb 29 20:23 : exception: RTIOThread could not get realtime scheduling, continuing anyway: sched_setscheduler failed: Operation not permitted
+Feb 29 20:23 : exception: OutputThread could not get realtime scheduling, continuing anyway: sched_setscheduler failed: Operation not permitted
+Feb 29 20:23 : exception: Failed to open mixer for 'ALSA sound card': no such mixer control: PCM
+Feb 29 20:23 : exception: OutputThread could not get realtime scheduling, continuing anyway: sched_setscheduler failed: Operation not permitted
+Feb 29 20:23 : client: [0] opened from 127.0.0.1:37664
+Feb 29 20:23 : alsa_output: Decoder is too slow; playing silence to avoid xrun
+Feb 29 20:31 : player: played "Scorpions,BonJovi,TheEagles,Aerosmith,U2,LedZeppelinBestSlowRockSongsEver30uELlF5U6o.mp3"
+Feb 29 20:31 : exception: RTIOThread could not get realtime scheduling, continuing anyway: sched_setscheduler failed: Operation not permitted
+Feb 29 20:31 : exception: OutputThread could not get realtime scheduling, continuing anyway: sched_setscheduler failed: Operation not permitted
+Feb 29 20:31 : exception: Failed to open mixer for 'ALSA sound card': no such mixer control: PCM
+Feb 29 20:31 : exception: OutputThread could not get realtime scheduling, continuing anyway: sched_setscheduler failed: Operation not permitted
+Feb 29 20:31 : alsa_output: Decoder is too slow; playing silence to avoid xrun
+Feb 29 20:31 : client: [0] opened from 127.0.0.1:39352
+Feb 29 20:31 : client: [0] closed
+Feb 29 20:32 : player: played "Scorpions,BonJovi,TheEagles,Aerosmith,U2,LedZeppelinBestSlowRockSongsEver30uELlF5U6o.mp3"
+Feb 29 20:32 : exception: RTIOThread could not get realtime scheduling, continuing anyway: sched_setscheduler failed: Operation not permitted
+Feb 29 20:32 : exception: OutputThread could not get realtime scheduling, continuing anyway: sched_setscheduler failed: Operation not permitted
+Feb 29 20:32 : exception: Failed to open mixer for 'ALSA sound card': no such mixer control: PCM
+Feb 29 20:32 : exception: OutputThread could not get realtime scheduling, continuing anyway: sched_setscheduler failed: Operation not permitted
+Feb 29 20:32 : client: [0] opened from 127.0.0.1:39370
+Feb 29 20:32 : alsa_output: Decoder is too slow; playing silence to avoid xrun
+Feb 29 20:37 : client: [0] closed
+Feb 29 20:37 : client: [1] opened from 127.0.0.1:39560
+Feb 29 20:38 : client: [1] closed
+Feb 29 20:47 : client: [2] opened from 127.0.0.1:39758
+Feb 29 20:53 : client: [3] opened from 127.0.0.1:39836
+Feb 29 20:53 : alsa_output: Decoder is too slow; playing silence to avoid xrun
+Feb 29 20:55 : client: [2] closed
+Feb 29 20:55 : client: [4] opened from 127.0.0.1:39862
+Feb 29 20:55 : client: [5] opened from 127.0.0.1:39864
+Feb 29 20:55 : player: played "#6The10BestofPearlJambO9htD6gT0w.mp3"
+Feb 29 20:55 : client: [5] closed
+Feb 29 20:55 : client: [6] opened from 127.0.0.1:39866
+Feb 29 20:55 : client: [6] closed
+Feb 29 20:55 : exception: Failed to open mixer for 'ALSA sound card': no such mixer control: PCM
+Feb 29 20:55 : alsa_output: Decoder is too slow; playing silence to avoid xrun
+Feb 29 20:55 : client: [7] opened from 127.0.0.1:39868
+Feb 29 20:55 : player: played "#6The10BestofPearlJambO9htD6gT0w.mp3"
+Feb 29 20:55 : client: [7] closed
+Feb 29 20:56 : client: [4] closed
+Feb 29 20:57 : client: [3] closed
+Feb 29 21:04 : client: [8] opened from 127.0.0.1:39894
+Feb 29 21:05 : client: [8] closed
+Feb 29 21:05 : client: [9] opened from 127.0.0.1:39896
+Feb 29 21:07 : client: [9] closed
+Feb 29 21:07 : client: [10] opened from 127.0.0.1:39900
+Feb 29 21:08 : client: [10] closed
+Feb 29 21:08 : client: [11] opened from 127.0.0.1:39908
+Feb 29 21:08 : client: [11] closed
+Feb 29 21:08 : client: [12] opened from 127.0.0.1:39910
+Feb 29 21:10 : client: [12] closed
+Feb 29 21:10 : client: [13] opened from 127.0.0.1:39912
+Feb 29 21:10 : client: [13] closed
+Feb 29 21:10 : client: [14] opened from 127.0.0.1:39914
+Feb 29 21:12 : client: [14] closed
+Feb 29 21:12 : client: [15] opened from 127.0.0.1:39920
+Feb 29 21:12 : client: [15] closed
+Feb 29 21:14 : client: [16] opened from 127.0.0.1:39922
+Feb 29 21:17 : client: [16] closed
+Feb 29 21:19 : client: [17] opened from 127.0.0.1:40008
+Feb 29 21:20 : client: [17] closed
+Feb 29 21:20 : exception: RTIOThread could not get realtime scheduling, continuing anyway: sched_setscheduler failed: Operation not permitted
+Feb 29 21:20 : client: [0] opened from 127.0.0.1:40010
+Feb 29 21:20 : exception: Failed to read mixer for 'ALSA sound card': no such mixer control: PCM
+Feb 29 21:30 : client: [0] closed
+Feb 29 21:30 : exception: RTIOThread could not get realtime scheduling, continuing anyway: sched_setscheduler failed: Operation not permitted
+Feb 29 21:30 : client: [0] opened from 127.0.0.1:41322
+Feb 29 21:30 : exception: Failed to read mixer for 'ALSA sound card': no such mixer control: PCM
+Feb 29 21:32 : client: [0] closed
+Feb 29 21:32 : exception: RTIOThread could not get realtime scheduling, continuing anyway: sched_setscheduler failed: Operation not permitted
+Feb 29 21:32 : client: [0] opened from 127.0.0.1:41654
+Feb 29 21:32 : exception: Failed to read mixer for 'ALSA sound card': no such mixer control: PCM
+Feb 29 21:40 : client: [0] closed
+Feb 29 21:41 : exception: RTIOThread could not get realtime scheduling, continuing anyway: sched_setscheduler failed: Operation not permitted
+Feb 29 21:41 : client: [0] opened from 127.0.0.1:51672
+Feb 29 21:41 : exception: Failed to read mixer for 'ALSA sound card': no such mixer control: PCM
+Feb 29 21:42 : client: [1] opened from 127.0.0.1:51676
+Feb 29 21:42 : client: [2] opened from 127.0.0.1:51678
+Feb 29 21:42 : client: [3] opened from 127.0.0.1:51680
+Feb 29 21:42 : client: [4] opened from 127.0.0.1:51682
+Feb 29 21:42 : client: [5] opened from 127.0.0.1:51686
+Feb 29 21:42 : client: [6] opened from 127.0.0.1:51688
+Feb 29 21:43 : exception: OutputThread could not get realtime scheduling, continuing anyway: sched_setscheduler failed: Operation not permitted
+Feb 29 21:43 : exception: Failed to open mixer for 'ALSA sound card': no such mixer control: PCM
+Feb 29 21:43 : exception: OutputThread could not get realtime scheduling, continuing anyway: sched_setscheduler failed: Operation not permitted
+Feb 29 21:43 : alsa_output: Decoder is too slow; playing silence to avoid xrun
+Feb 29 21:43 : client: [7] opened from 127.0.0.1:51690
+Feb 29 21:43 : client: [7] closed
+Feb 29 21:43 : client: [1] closed
+Feb 29 21:43 : client: [8] opened from 127.0.0.1:51692
+Feb 29 21:43 : client: [2] closed
+Feb 29 21:43 : client: [3] closed
+Feb 29 21:43 : client: [4] closed
+Feb 29 21:43 : client: [6] closed
+Feb 29 21:43 : client: [5] closed
+Feb 29 21:44 : client: [8] closed
+Feb 29 21:44 : client: [9] opened from 127.0.0.1:51694
+Feb 29 21:44 : client: [10] opened from 127.0.0.1:51698
+Feb 29 21:44 : client: [11] opened from 127.0.0.1:51700
+Feb 29 21:44 : client: [12] opened from 127.0.0.1:51702
+Feb 29 21:44 : client: [13] opened from 127.0.0.1:51704
+Feb 29 21:44 : client: [14] opened from 127.0.0.1:51706
+Feb 29 21:45 : client: [9] closed
+Feb 29 21:45 : client: [11] closed
+Feb 29 21:45 : client: [12] closed
+Feb 29 21:45 : client: [13] closed
+Feb 29 21:45 : client: [14] closed
+Feb 29 21:45 : client: [10] closed
+Feb 29 21:47 : client: [15] opened from 127.0.0.1:51804
+Feb 29 21:48 : client: [15] closed
+Feb 29 21:51 : client: [16] opened from 127.0.0.1:52000
+Feb 29 21:52 : player: played "Scorpions,BonJovi,TheEagles,Aerosmith,U2,LedZeppelinBestSlowRockSongsEver30uELlF5U6o.mp3"
+Feb 29 23:25 : client: [17] opened from 127.0.0.1:53522
+Feb 29 23:26 : exception: Failed to open mixer for 'ALSA sound card': no such mixer control: PCM
+Feb 29 23:26 : alsa_output: Decoder is too slow; playing silence to avoid xrun
+Feb 29 23:26 : client: [17] closed
+Feb 29 23:28 : alsa_output: Decoder is too slow; playing silence to avoid xrun
+Feb 29 23:28 : player: played "TheBeachBoys-GodOnlyKnows.mp3"
+Feb 29 23:30 : client: [18] opened from 127.0.0.1:53562
+Feb 29 23:30 : client: [18] closed
+Feb 29 23:30 : update: added /Sinister - End Credits (Gyroscope) (Soundtrack Score OST)-hQJlQeJr1Q8.mp3
+Feb 29 23:31 : client: [19] opened from 127.0.0.1:53568
+Feb 29 23:31 : exception: Failed to open mixer for 'ALSA sound card': no such mixer control: PCM
+Feb 29 23:31 : alsa_output: Decoder is too slow; playing silence to avoid xrun
+Feb 29 23:33 : client: [20] opened from 127.0.0.1:53620
+Feb 29 23:33 : update: added /DJ Snake & Lil Jon - Turn Down For What Official Music Video-MccSDYXV3Og.mp3
+Feb 29 23:33 : client: [20] closed
+Feb 29 23:33 : client: [21] opened from 127.0.0.1:53624
+Feb 29 23:33 : client: [19] closed
+Feb 29 23:33 : client: [21] closed
+Feb 29 23:34 : alsa_output: Decoder is too slow; playing silence to avoid xrun
+Feb 29 23:34 : alsa_output: Decoder is too slow; playing silence to avoid xrun
+Feb 29 23:35 : player: played "DJ Snake & Lil Jon - Turn Down For What Official Music Video-MccSDYXV3Og.mp3"
+Feb 29 23:36 : exception: Failed to open mixer for 'ALSA sound card': no such mixer control: PCM
+Feb 29 23:36 : alsa_output: Decoder is too slow; playing silence to avoid xrun
+Feb 29 23:37 : exception: Failed to open mixer for 'ALSA sound card': no such mixer control: PCM
+Feb 29 23:37 : alsa_output: Decoder is too slow; playing silence to avoid xrun
+Feb 29 23:39 : update: added /Dillon Francis, DJ Snake - Get Low (Video)-12CeaxLiMgE.mp3
+Feb 29 23:39 : alsa_output: Decoder is too slow; playing silence to avoid xrun
+Feb 29 23:43 : player: played "Dillon Francis, DJ Snake - Get Low (Video)-12CeaxLiMgE.mp3"
+Feb 29 23:48 : exception: Failed to open mixer for 'ALSA sound card': no such mixer control: PCM
+Feb 29 23:48 : alsa_output: Decoder is too slow; playing silence to avoid xrun
+Feb 29 23:48 : update: added /The Buggles - Video Killed The Radio Star-W8r-tXRLazs.mp3
+Feb 29 23:50 : player: played "Dillon Francis, DJ Snake - Get Low (Video)-12CeaxLiMgE.mp3"
+Feb 29 23:52 : exception: Failed to open mixer for 'ALSA sound card': no such mixer control: PCM
+Feb 29 23:52 : alsa_output: Decoder is too slow; playing silence to avoid xrun
+Feb 29 23:56 : alsa_output: Decoder is too slow; playing silence to avoid xrun
+Feb 29 23:59 : player: played "Sinister - End Credits (Gyroscope) (Soundtrack Score OST)-hQJlQeJr1Q8.mp3"
+Feb 29 23:59 : update: removing #6The10BestofPearlJambO9htD6gT0w.mp3
+Feb 29 23:59 : update: removing AtifAslam,TajdareHaram,CokeStudioSeason8,Episode1.a18py61Fw.mp3
+Feb 29 23:59 : update: added /Atif Aslam, Taj dar Haram, Coke Studio.mp3
+Feb 29 23:59 : update: added /the_best_of_perl_jam.mp3
+Mar 01 00:02 : alsa_output: Decoder is too slow; playing silence to avoid xrun
+Mar 01 00:05 : player: played "The Buggles - Video Killed The Radio Star-W8r-tXRLazs.mp3"
+Mar 01 00:30 : client: [16] closed

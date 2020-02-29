@@ -1,0 +1,153 @@
+#! /bin/sh
+## workspace name
+## font needed wuncon-siji
+bspc monitor -d I II III IV V VI VII VIII IX X
+
+## common bspwm configuration
+bspc config border_width        2
+bspc config window_gap         	10
+bspc config split_ratio          0.5
+bspc config borderless_monocle   true
+bspc config gapless_monocle      false
+bspc config focus_follows_pointer true
+bspc config top_padding 15
+
+## color settings
+bspc config focused_border_color "#d8dee8" 
+bspc config normal_border_color "#2f343f"
+
+
+##################
+## window rules ##
+##################
+
+## workspace 1 (labs)
+bspc rule -a st-256color desktop='^1' follow=on focus=on
+#bspc rule -a Xfce4-terminal desktop='^1' follow=on focus=on
+
+## workspace 2 (web browsers)
+bspc rule -a firefox desktop='^2' follow=on focus=on
+bspc rule -a Chromium desktop='^2' follow=on focus=on
+bspc rule -a Opera desktop='^2' follow=on focus=on
+bspc rule -a Transmission-gtk desktop='^2' follow=on focus=on
+
+## workspace 3 (file-manager)
+bspc rule -a Thunar desktop='^3' follow=on focus=on
+#bspc rule -a File-roller desktop='^3' follow=on focus=on
+
+## workspace 4 (text-editors)
+bspc rule -a texstudio desktop='^4' follow=on focus=on
+bspc rule -a TeXstudio desktop='^4' follow=on focus=on
+
+#bspc rule -a libreoffice-startcenter desktop='^4' follow=on focus=on
+#bspc rule -a libreoffice desktop='^4' follow=on focus=on
+#bspc rule -a Soffice desktop='^4' follow=on focus=on
+#bspc rule -a libreoffice-base desktop='^4' follow=on focus=on
+#bspc rule -a libreoffice-calc desktop='^4' follow=on focus=on
+#bspc rule -a libreoffice-draw desktop='^4' follow=on focus=on
+#bspc rule -a libreoffice-impress desktop='^4' follow=on focus=on
+#bspc rule -a libreoffice-math desktop='^4' follow=on focus=on
+#bspc rule -a libreoffice-writer desktop='^4' follow=on focus=on
+#bspc rule -a Wps desktop='^4' follow=on focus=on
+#bspc rule -a Et desktop='^4' follow=on focus=on
+#bspc rule -a Wpp desktop='^4' follow=on focus=on
+
+## workspace 5 (graphic-utilities)
+#bspc rule -a Nitrogen desktop='^5' follow=on focus=on
+#bspc rule -a Font-manager desktop='^5' state=tiled follow=on focus=on
+#bspc rule -a Evince desktop='^5' follow=on focus=on
+#bspc rule -a Gucharmap desktop='^5' follow=on focus=on
+
+## workspace 6 (multimedia)
+#bspc rule -a Audacity desktop='^6' follow=on focus=on
+bspc rule -a Vlc desktop='^6' follow=on focus=on
+bspc rule -a mpv desktop='^6' follow=on focus=on
+#bspc rule -a Ghb desktop='^6' follow=on focus=on
+#bspc rule -a Xfburn desktop='^6' follow=on focus=on
+
+## workspace 7 (graphics-editors)
+bspc rule -a Gimp desktop='^7' follow=on focus=on
+bspc rule -a Gimp-2.8 desktop='^7' follow=on focus=on
+bspc rule -a Inkscape desktop='^7' follow=on focus=on
+#bspc rule -a Oomox desktop='^7' follow=on focus=on
+
+## workspace 8 (system-settings)
+#bspc rule -a Lxappearance desktop='^8' state=floating follow=on
+#bspc rule -a Xfce4-settings-manager desktop='^8' state=floating follow=on
+#bspc rule -a Lightdm-gtk-greeter-settings desktop='^8' state=floating follow=on
+#bspc rule -a System-config-printer.py desktop='^8' state=floating follow=on
+#bspc rule -a Lxtask desktop='^8' state=floating follow=on
+#bspc rule -a GParted desktop='^8' follow=on focus=on
+#bspc rule -a Pavucontrol desktop='^8' state=floating follow=on
+#bspc rule -a Exo-helper-1 desktop='^8' state=floating follow=on
+#bspc rule -a Lxrandr desktop='^8' state=floating follow=on
+#bspc rule -a Arandr desktop='^8' state=floating follow=on
+
+## workspace 9 (Emails)
+bspc rule -a Thunderbird desktop='^9' follow=on focus=on
+
+## need to be floating
+#bspc rule -a Audacious state=floating follow=on
+#bspc rule -a Viewnior state=floating follow=on
+bspc rule -a feh state=floating follow=on
+#bspc rule -a Gpicview state=floating follow=on
+
+## don't manage my conky & systemtray :/
+#bspc rule -a Conky state=floating manage=off
+#bspc rule -a stalonetray state=floating manage=off
+
+###############
+## autostart ##
+###############
+
+# keybind daemon
+pkill sxhkd
+sxhkd &
+
+# Load bitmap fonts
+#xset fp+ ~/.fonts/misc &
+
+## reload compton
+pkill compton
+compton -b &
+
+# system tray
+#pkill stalonetray
+#stalonetray &
+
+# network applet
+nm-applet &
+
+# clipboard manager
+#pkill clipit
+#clipit &
+pkill xclip
+xclip &
+
+# volume icon
+#ipkill volumeicon
+#volumeicon &
+
+## music is my only friend :(
+pkill mpd
+mpd &
+
+## reload the xsettingsd, a minimal x settings daemon
+pkill xsettingsd
+xsettingsd &
+
+## set the wallpaper
+feh -rz --bg-fill $HOME/media/Pictures/WallPapers/*
+
+## load dunst
+pkill dunst
+dunst &
+
+## reload the cursor theme
+xsetroot -cursor_name left_ptr
+
+## polybar
+$HOME/.config/polybar/launch.sh 
+
+pkill redshift
+/usr/bin/redshift &
