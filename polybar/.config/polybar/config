@@ -30,7 +30,7 @@ font-1 = FontAwesome:pixelsize=8
 wm-restack = bspwm
 modules-left = bspwm
 modules-center = xwindow
-modules-right =  mpd himanshu alsa date powermenu
+modules-right =  mpd himanshu pulseaudio date powermenu
 
 
 [module/bspwm]
@@ -84,16 +84,16 @@ exec = ~/.config/polybar/scripts/himanshu.sh
 label = %output%
 
 
-[module/alsa]
-type = internal/alsa
-
+[module/pulseaudio]
+type = internal/pulseaudio
+sink = alsa_output.pci-0000_09_00.6.analog-stereo
 format-volume = <label-volume> <bar-volume>
 label-volume = VOL
 label-volume-foreground = ${root.foreground}
 
 format-muted-prefix = "V "
 format-muted-foreground = ${colors.foreground-alt}
-label-muted = sound muted
+label-muted = muted
 
 bar-volume-width = 10
 bar-volume-foreground-0 = #55aa55

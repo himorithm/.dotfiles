@@ -65,9 +65,9 @@ bspc rule -a mpv desktop='^6' follow=on focus=on
 #bspc rule -a Xfburn desktop='^6' follow=on focus=on
 
 ## workspace 7 (graphics-editors)
-bspc rule -a Gimp desktop='^7' follow=on focus=on
-bspc rule -a Gimp-2.8 desktop='^7' follow=on focus=on
-bspc rule -a Inkscape desktop='^7' follow=on focus=on
+#bspc rule -a Gimp desktop='^7' follow=on focus=on
+#bspc rule -a Gimp-2.8 desktop='^7' follow=on focus=on
+#bspc rule -a Inkscape desktop='^7' follow=on focus=on
 #bspc rule -a Oomox desktop='^7' follow=on focus=on
 
 ## workspace 8 (system-settings)
@@ -127,7 +127,9 @@ xclip &
 #ipkill volumeicon
 #volumeicon &
 
-## music is my only friend :(
+## music is my only friend :( moved to mopidy
+#pkill mopidy
+#mopidy &
 pkill mpd
 mpd &
 

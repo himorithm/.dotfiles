@@ -1,8 +1,16 @@
 #
 # wm independent hotkeys
-#
 
-# terminal emulator
+
+
+#Volume Control
+XF86Audio{RaiseVolume,LowerVolume,Mute}
+	amixer {-c 0 set PCM 4dB+,-c 0 set PCM 4dB-,set Master toggle}
+ 		
+## music control
+XF86Audio{Next,Prev,Play,Stop}
+ 	mpc {next,prev,toggle,stop}
+
 super + Return
 	st
 
