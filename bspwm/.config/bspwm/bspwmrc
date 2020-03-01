@@ -27,19 +27,18 @@ bspc rule -a st-256color desktop='^1' follow=on focus=on
 
 ## workspace 2 (web browsers)
 bspc rule -a firefox desktop='^2' follow=on focus=on
-bspc rule -a Chromium desktop='^2' follow=on focus=on
+bspc rule -a qutebrowser desktop='^2' follow=on focus=on
 bspc rule -a brave-browser desktop='^2' follow=on focus=on
-bspc rule -a Transmission-gtk desktop='^2' follow=on focus=on
+#bspc rule -a Transmission-gtk desktop='^2' follow=on focus=on
 
 ## workspace 3 (file-manager)
-bspc rule -a Thunar desktop='^3' follow=on focus=on
+#bspc rule -a Thunar desktop='^3' follow=on focus=on
 #bspc rule -a File-roller desktop='^3' follow=on focus=on
 
 ## workspace 4 (text-editors)
-bspc rule -a texstudio desktop='^4' follow=on focus=on
 bspc rule -a TeXstudio desktop='^4' follow=on focus=on
+bspc rule -a qpdfview -startcenter desktop='^4' follow=on focus=on
 
-#bspc rule -a libreoffice-startcenter desktop='^4' follow=on focus=on
 #bspc rule -a libreoffice desktop='^4' follow=on focus=on
 #bspc rule -a Soffice desktop='^4' follow=on focus=on
 #bspc rule -a libreoffice-base desktop='^4' follow=on focus=on

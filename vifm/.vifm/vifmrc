@@ -1,0 +1,13 @@
+filetype *.md5 md5sum -c %f
+
+filextype *.jpg,*.jpeg,*.png,*.gif
+       \ {View in feh}
+              \ feh -FZ %d --start-at %d/%c 2>/dev/null
+
+
+command df df -h %m 2> /dev/null
+command diff vim -d %f %F
+command link ln -s %d/%f %D
+command pdf  qpdfview %c
+command img vimiv %c  
+

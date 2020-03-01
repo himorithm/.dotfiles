@@ -1,8 +1,9 @@
 sw_volume: 38
 audio_device_state:1:ALSA sound card
 audio_device_state:1:my_fifo
-state: stop
-current: 10
+state: play
+current: 11
+time: 4.214000
 random: 0
 repeat: 0
 single: 0
@@ -22,4 +23,5 @@ playlist_begin
 8:Dheere Dheere Se Meri Zindagi Mein AanaDheere Dheere Se Mere Dil Ko Churaana-tpEKCF2P7CI.mp3
 9:Kho Gaye Hum Kahan - Lyrical _Baar Baar Dekho _Sidharth Malhotra, Katrina Kaif _Jasleen R, Prateek K-kY7a_ReAcas.mp3
 10:What A Wonderful World.avi-vLrfjqgLbNU.mp3
+11:Yun Hi Chala Chal Lyrical Video _ Swades _ A.R. Rahman _ Shahrukh Khan.mp3
 playlist_end
