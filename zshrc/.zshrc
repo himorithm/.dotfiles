@@ -68,7 +68,7 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=( git archlinux zsh- common-aliases z tmux syntax-highlighting)
+plugins=( git archlinux common-aliases z tmux zsh-autosuggestions history-substring-search zsh-syntax-highlighting )
 
 source $ZSH/oh-my-zsh.sh
 
@@ -122,7 +122,7 @@ alias svi='sudo vim'
 alias vis='vim "+set si"'
 alias edit='vim'
 alias l.='/usr/bin/ls -d .* --color=auto'
-alias l='/usr/bin/ls --color=auto  -la'
+alias ll='/usr/bin/ls --color=auto  -la'
 #alias ls='br -dp'
 
 
@@ -130,12 +130,12 @@ alias l='/usr/bin/ls --color=auto  -la'
 alias ping='ping -c 5'
 # Do not wait interval 1 second, go fast #
 alias fastping='ping -c 100 -s.2'
-alias ports='netstat -tulanp'
+#alias ports='netstat -tulanp'
 alias personalbkp="bash ~/work/scripts/backup_personal.sh"
 alias sysbkp="bash ~/work/scripts/backup_system.sh"
 alias mobilebkp="bash ~/work/scripts/backup_mobile.sh"
 alias music=ncmpcpp
-alias youtube-mp3='cd ~/media/Music/; youtube-dl --ignore-errors --extract-audio --audio-format mp3' 
+#alias youtube-mp3='cd ~/media/Music/; youtube-dl --ignore-errors --extract-audio --audio-format mp3' 
 
 #Set vi option enable 
 set -o vi
@@ -171,3 +171,46 @@ PERL_LOCAL_LIB_ROOT="/home/himanshu/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LI
 PERL_MB_OPT="--install_base \"/home/himanshu/perl5\""; export PERL_MB_OPT;
 PERL_MM_OPT="INSTALL_BASE=/home/himanshu/perl5"; export PERL_MM_OPT;
 
+#Setup Key Bindings
+
+
+#create a zkbd compatible hash;
+# to add other keys to this hash, see: man 5 terminfo
+typeset -g -A key
+
+key[Home]="${terminfo[khome]}"
+key[End]="${terminfo[kend]}"
+key[Insert]="${terminfo[kich1]}"
+key[Backspace]="${terminfo[kbs]}"
+key[Delete]="${terminfo[kdch1]}"
+key[Up]="${terminfo[kcuu1]}"
+key[Down]="${terminfo[kcud1]}"
+key[Left]="${terminfo[kcub1]}"
+key[Right]="${terminfo[kcuf1]}"
+key[PageUp]="${terminfo[kpp]}"
+key[PageDown]="${terminfo[knp]}"
+key[Shift-Tab]="${terminfo[kcbt]}"
+
+# Setup key accordingly
+[[ -n "${key[Home]}"      ]] && bindkey -- "${key[Home]}"      beginning-of-line
+[[ -n "${key[End]}"       ]] && bindkey -- "${key[End]}"       end-of-line
+[[ -n "${key[Insert]}"    ]] && bindkey -- "${key[Insert]}"    overwrite-mode
+[[ -n "${key[Backspace]}" ]] && bindkey -- "${key[Backspace]}" backward-delete-char
+[[ -n "${key[Delete]}"    ]] && bindkey -- "${key[Delete]}"    delete-char
+[[ -n "${key[Up]}"        ]] && bindkey -- "${key[Up]}"        up-line-or-history
+[[ -n "${key[Down]}"      ]] && bindkey -- "${key[Down]}"      down-line-or-history
+[[ -n "${key[Left]}"      ]] && bindkey -- "${key[Left]}"      backward-char
+[[ -n "${key[Right]}"     ]] && bindkey -- "${key[Right]}"     forward-char
+[[ -n "${key[PageUp]}"    ]] && bindkey -- "${key[PageUp]}"    beginning-of-buffer-or-history
+[[ -n "${key[PageDown]}"  ]] && bindkey -- "${key[PageDown]}"  end-of-buffer-or-history
+[[ -n "${key[Shift-Tab]}" ]] && bindkey -- "${key[Shift-Tab]}" reverse-menu-complete
+
+# Finally, make sure the terminal is in application mode, when zle is
+# active. Only then are the values from $terminfo valid.
+if (( ${+terminfo[smkx]} && ${+terminfo[rmkx]} )); then
+	autoload -Uz add-zle-hook-widget
+	function zle_application_mode_start { echoti smkx }
+	function zle_application_mode_stop { echoti rmkx }
+	add-zle-hook-widget -Uz zle-line-init zle_application_mode_start
+	add-zle-hook-widget -Uz zle-line-finish zle_application_mode_stop
+fi

@@ -28,7 +28,7 @@ bspc rule -a st-256color desktop='^1' follow=on focus=on
 ## workspace 2 (web browsers)
 bspc rule -a firefox desktop='^2' follow=on focus=on
 bspc rule -a Chromium desktop='^2' follow=on focus=on
-bspc rule -a Opera desktop='^2' follow=on focus=on
+bspc rule -a brave-browser desktop='^2' follow=on focus=on
 bspc rule -a Transmission-gtk desktop='^2' follow=on focus=on
 
 ## workspace 3 (file-manager)
