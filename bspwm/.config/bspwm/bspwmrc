@@ -133,6 +133,7 @@ xclip &
 pkill mpd
 mpd &
 
+
 ## reload the xsettingsd, a minimal x settings daemon
 pkill xsettingsd
 xsettingsd &
@@ -143,6 +144,9 @@ feh -rz --bg-fill $HOME/media/Pictures/WallPapers/*
 ## load dunst
 pkill dunst
 dunst &
+
+notify-send "Music Deamon Started"
+notify-send "Connected: $(nmcli conn show --active | awk '!/NAME/{ print $1 " on " $4 }' )"
 
 ## reload the cursor theme
 xsetroot -cursor_name left_ptr

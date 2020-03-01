@@ -1,0 +1,34 @@
+auto-reload yes
+refresh-on-startup yes
+confirm-exit no
+reload-time 30
+browser qutebrowser
+player mpv
+article-sort-order date-asc
+
+macro y set browser "mpv %u"; open-in-browser ; set browser "elinks %u"
+
+#Style
+# General Colors
+color background default default
+color listnormal default default
+color listnormal_unread yellow default bold
+color listfocus default black
+color listfocus_unread yellow black bold
+color info cyan black
+color article default default
+
+# Highlight Rules
+highlight feedlist "https?://[^ ]+" cyan default
+highlight feedlist "#[[:space:]].+$" blue default bold
+highlight articlelist "[[:digit:]]{4}-[[:digit:]]{2}-[[:digit:]]{2}" cyan default
+highlight article "https?://[^ ]+" cyan default
+highlight article "^(Feed|Title|Author|Link|Date):" blue default
+
+#Vim bindings
+bind-key j down
+bind-key k up
+bind-key l open
+bind-key h quit
+bind-key g home
+bind-key a toggle-article-read
