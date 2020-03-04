@@ -2,6 +2,15 @@
 -----------------REDDIT---------------------------------
 --------------------------------------------------------
 https://www.reddit.com/r/unixporn.rss "~Reddit: LinuxRice"
-https://www.reddit.com/r/Polybar.rss  "~Reddit: polybar"
-
+https://www.reddit.com/r/Polybar.rss "~Reddit: polybar"
+https://www.reddit.com/r/lbry.rss "~Reddit: LBRY"
+https://www.reddit.com/r/bspwm.rss "~Reddit: BSPWM"
+--------------------------------------------------------
+-----------------YOUTUBE--------------------------------
+--------------------------------------------------------
+https://www.youtube.com/feeds/videos.xml?channel_id=UC95m7aBYo7wgNCoHb1ojQYw "YOUTUBE: Bjorn Andreas Bull-Hansen"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCmdsbAk9T4N0TlR8x953lvQ "YOUTUBE: Sadguru Unplug"
+https://www.youtube.com/feeds/videos.xml?channel_id=UC2eYFnH61tmytImy1mTYvhA "YOUTUBE: Luke Smith Linux"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCkK9UDm_ZNrq_rIXCz3xCGA "YOUTUBE: Landuke"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCFzGyNKXPAglNq28qWYTDFA "YOUTUBE: Kai Henry"
 

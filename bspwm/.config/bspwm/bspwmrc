@@ -5,7 +5,7 @@ bspc monitor -d I II III IV V VI VII VIII IX X
 
 ## common bspwm configuration
 bspc config border_width        2
-bspc config window_gap         	10
+bspc config window_gap         	0
 bspc config split_ratio          0.5
 bspc config borderless_monocle   true
 bspc config gapless_monocle      false
@@ -22,7 +22,7 @@ bspc config normal_border_color "#2f343f"
 ##################
 
 ## workspace 1 (labs)
-bspc rule -a st-256color desktop='^1' follow=on focus=on
+#bspc rule -a st-256color desktop='^1' follow=on focus=on
 #bspc rule -a Xfce4-terminal desktop='^1' follow=on focus=on
 
 ## workspace 2 (web browsers)
@@ -69,6 +69,7 @@ bspc rule -a mpv desktop='^6' follow=on focus=on
 #bspc rule -a Gimp-2.8 desktop='^7' follow=on focus=on
 #bspc rule -a Inkscape desktop='^7' follow=on focus=on
 #bspc rule -a Oomox desktop='^7' follow=on focus=on
+bspc rule -a Wfica desktop='^7' follow=on focus=on
 
 ## workspace 8 (system-settings)
 #bspc rule -a Lxappearance desktop='^8' state=floating follow=on
@@ -104,15 +105,19 @@ pkill sxhkd
 sxhkd &
 
 # Load bitmap fonts
-#xset fp+ ~/.fonts/misc &
+xset fp+ ~/.fonts/misc &
 
 ## reload compton
 pkill compton
 compton -b &
 
+## load dunst
+pkill dunst
+dunst &
+
 # system tray
-#pkill stalonetray
-#stalonetray &
+pkill stalonetray
+stalonetray &
 
 # network applet
 nm-applet &
@@ -120,11 +125,11 @@ nm-applet &
 # clipboard manager
 #pkill clipit
 #clipit &
-pkill xclip
-xclip &
+#pkill xclip
+#xclip &
 
 # volume icon
-#ipkill volumeicon
+#pkill volumeicon
 #volumeicon &
 
 ## music is my only friend :( moved to mopidy
@@ -133,7 +138,6 @@ xclip &
 pkill mpd
 mpd &
 
-
 ## reload the xsettingsd, a minimal x settings daemon
 pkill xsettingsd
 xsettingsd &
@@ -141,18 +145,19 @@ xsettingsd &
 ## set the wallpaper
 feh -rz --bg-fill $HOME/media/Pictures/WallPapers/*
 
-## load dunst
-pkill dunst
-dunst &
 
-notify-send "Music Deamon Started"
-notify-send "Connected: $(nmcli conn show --active | awk '!/NAME/{ print $1 " on " $4 }' )"
-
+#notify-send "Music Deamon Started"
+#notify-send "Connected: $(nmcli conn show --active | awk '!/NAME/{ print $1 " on " $4 }' )"
 ## reload the cursor theme
-xsetroot -cursor_name left_ptr
+#xsetroot -cursor_name left_ptr
 
 ## polybar
 $HOME/.config/polybar/launch.sh 
 
+#Start Readshift
 pkill redshift
 /usr/bin/redshift &
+
+#Start Clipboard Manager 
+pkill greenclip 
+greenclip daemon
