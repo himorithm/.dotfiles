@@ -93,13 +93,13 @@ label-song-ellipsis = true
 type = internal/pulseaudio
 sink = alsa_output.pci-0000_09_00.6.analog-stereo
 format-volume = |<bar-volume> <label-volume>
-label-volume = 
+label-volume = 
 label-volume-foreground = #EFEA08
 ;${root.foreground}
 
 format-muted-prefix =
 format-muted-foreground = #EFEA08
-label-muted = | 
+label-muted = |  
 
 bar-volume-width = 10
 bar-volume-foreground-0 = #55aa55
