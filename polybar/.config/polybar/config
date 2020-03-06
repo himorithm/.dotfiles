@@ -18,12 +18,13 @@ height = 24
 fixed-center = true
 background = ${colors.background}
 foreground = ${colors.foreground}
-padding-left = 2
-padding-right = 2
-module-margin-left = 2
-module-margin-right = 2
-font-0 = Noto Sans:pixelsize=8
-font-1 = FontAwesome:pixelsize=8
+padding-left = 0
+padding-right = 0
+module-margin-left = 0
+module-margin-right = 0
+font-0 = FontAwesome5Free:style=Solid:pixelsize=10:antialias=false;3
+font-1 = Noto Sans:pixelsize=10
+
 ;offset-x = 5%
 width=98%
 ;tray-position = right
@@ -32,20 +33,29 @@ width=98%
 wm-restack = bspwm
 modules-left = bspwm
 modules-center = xwindow
-modules-right =  mpd pulseaudio date powermenu
+modules-right =  mpd pulseaudio  popup-calendar updates-arch-combined powermenu
+
+[module/updates-arch-combined]
+type = custom/script
+exec = ~/.config/polybar/scripts/updates-arch-combined.sh
+interval = 7200
+format-background = #732929
 
 
 [module/bspwm]
 
 type = internal/bspwm
 label-focused = %name%
-label-focused-background= ${colors.background-alt}
+label-focused-background= #00AAFF
+;${colors.background-alt}
 label-focused-padding = 3
 label-occupied = %name%
 label-occupied-padding = 3
-label-occupied-foreground= ${colors.foreground}
+label-occupied-foreground= #EFEA08
+;${colors.foreground}
 label-urgent = %name%
-label-urgent-background = ${colors.alert}
+label-urgent-background = #A52A2A
+;${colors.alert}
 label-urgent-padding = 3
 label-empty = %name%
 label-empty-foreground = ${colors.foreground-alt}
@@ -61,14 +71,14 @@ label = %title:0:100:...%
 [module/mpd]
 
 type = internal/mpd
-;format-online = <icon-prev>  <label-time>  <label-song>  <icon-next>
+format-online = <icon-prev>  <label-time>  <label-song>  <icon-next>
 ;format-online = <toggle>  <label-song>
-format-online = <label-song>
-;icon-play = ⏵
-;icon-pause = ⏸
-;icon-stop = ⏹
-;icon-prev = ⏮
-;icon-next = ⏭
+;format-online = <label-song>
+icon-play = 
+icon-pause = 
+icon-stop = 
+icon-prev = 
+icon-next = 
 ;icon-seekb = ⏪
 ;icon-seekf = ⏩
 icon-prev-foreground = ${colors.accent}
@@ -79,23 +89,17 @@ label-song-ellipsis = true
 
 
 
-[module/himanshu]
-type = custom/script
-interval = 3.0
-exec = ~/.config/polybar/scripts/himanshu.sh
-label = %output%
-
-
 [module/pulseaudio]
 type = internal/pulseaudio
 sink = alsa_output.pci-0000_09_00.6.analog-stereo
-format-volume = <label-volume> <bar-volume>
-label-volume = VOL
-label-volume-foreground = ${root.foreground}
+format-volume = |<bar-volume> <label-volume>
+label-volume = 
+label-volume-foreground = #EFEA08
+;${root.foreground}
 
-format-muted-prefix = "V "
-format-muted-foreground = ${colors.foreground-alt}
-label-muted = muted
+format-muted-prefix =
+format-muted-foreground = #EFEA08
+label-muted = | 
 
 bar-volume-width = 10
 bar-volume-foreground-0 = #55aa55
@@ -106,75 +110,23 @@ bar-volume-foreground-4 = #55aa55
 bar-volume-foreground-5 = #f5a70a
 bar-volume-foreground-6 = #ff5555
 bar-volume-gradient = false
-bar-volume-indicator = |
+bar-volume-indicator =
 bar-volume-indicator-font = 2
-bar-volume-fill =  -
+bar-volume-fill =  
 bar-volume-fill-font = 2
-bar-volume-empty =  
+bar-volume-empty =
 bar-volume-empty-font = 2
 bar-volume-empty-foreground = ${colors.foreground-alt}
 
 
-;format-volume = <label-volume> <bar-volume>
-;label-volume = "%percentage%%"
-;label-volume-foreground = ${colors.accent}
-;format-muted-prefix = "v "
-;format-muted-foreground = ${colors.accent}
-;label-muted = "Muted "
-;label-muted-foreground= ${colors.foreground-alt}
-;bar-volume-width = 6
-;bar-volume-indicator = -
-;bar-volume-fill = | 
-;bar-volume-empty = +
-;bar-volume-empty-foreground = ${colors.foreground-alt}
 
-[module/wlan]
-type = internal/network
-interface = enp9s0f3u2
-interval = 3.0
+[module/popup-calendar]
+type = custom/script
+exec = ~/.config/polybar/scripts/popup-calendar.sh
+interval = 5
+click-left = ~/.config/polybar/scripts/popup-calendar.sh --popup &
+format-foreground = #EFEA08
 
-format-connected = <ramp-signal> <label-connected>
-format-connected-underline = #9f78e1
-label-connected = %essid%
-
-format-disconnected =
-;format-disconnected = <label-disconnected>
-;format-disconnected-underline = ${self.format-connected-underline}
-;label-disconnected = %ifname% disconnected
-;label-disconnected-foreground = ${colors.foreground-alt}
-
-ramp-signal-0 = w0
-ramp-signal-1 = w1
-ramp-signal-2 = w2
-ramp-signal-3 = w3
-ramp-signal-4 = w4
-ramp-signal-foreground = ${colors.foreground-alt}
-
-[module/eth]
-type = internal/network
-interface = vboxnet0
-interval = 3.0
-
-format-connected-underline = #55aa55
-format-connected-prefix = "L "
-format-connected-prefix-foreground = ${colors.foreground-alt}
-label-connected = %local_ip%
-
-format-disconnected =
-;format-disconnected = <label-disconnected>
-;format-disconnected-underline = ${self.format-connected-underline}
-;label-disconnected = %ifname% disconnected
-;label-disconnected-foreground = ${colors.foreground-alt}
-
-[module/date]
-
-type = internal/date
-interval = 30
-label = " %date% %time%"
-date = %A, %d %B %Y
-time = %H:%M
-format-prefix =  
-format-prefix-foreground = ${colors.accent}
 
 [module/powermenu]
 type = custom/menu
@@ -183,7 +135,7 @@ expand-right = true
 
 format-spacing = 1
 
-label-open = " " 
+label-open = " "
 label-open-foreground = ${colors.foreground}
 label-close = P cancel
 label-close-foreground = ${colors.foreground}

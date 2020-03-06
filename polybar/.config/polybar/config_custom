@@ -18,19 +18,22 @@ height = 24
 fixed-center = true
 background = ${colors.background}
 foreground = ${colors.foreground}
-padding-left = 4
-padding-right = 4
+padding-left = 2
+padding-right = 2
 module-margin-left = 2
 module-margin-right = 2
-font-0 = Noto Sans:pixelsize=8
-font-1 = FontAwesome:pixelsize=8
+font-0 = FontAwesome5Free:style=Solid:pixelsize=10:antialias=false;3
+font-1 = Noto Sans:pixelsize=8
+;font-1 = FontAwesome:pixelsize=8
+;offset-x = 5%
+width=98%
 ;tray-position = right
 ;tray-padding = 2
 ;tray-background = ${colors.background}
 wm-restack = bspwm
 modules-left = bspwm
 modules-center = xwindow
-modules-right =  mpd himanshu alsa date powermenu
+modules-right =  mpd pulseaudio date powermenu
 
 
 [module/bspwm]
@@ -84,16 +87,16 @@ exec = ~/.config/polybar/scripts/himanshu.sh
 label = %output%
 
 
-[module/alsa]
-type = internal/alsa
-
+[module/pulseaudio]
+type = internal/pulseaudio
+sink = alsa_output.pci-0000_09_00.6.analog-stereo
 format-volume = <label-volume> <bar-volume>
-label-volume = VOL
+label-volume = %percentage%%
 label-volume-foreground = ${root.foreground}
 
-format-muted-prefix = "V "
+format-muted-prefix = 
 format-muted-foreground = ${colors.foreground-alt}
-label-muted = sound muted
+label-muted =    Muted
 
 bar-volume-width = 10
 bar-volume-foreground-0 = #55aa55
@@ -104,9 +107,9 @@ bar-volume-foreground-4 = #55aa55
 bar-volume-foreground-5 = #f5a70a
 bar-volume-foreground-6 = #ff5555
 bar-volume-gradient = false
-bar-volume-indicator = |
+bar-volume-indicator = | 
 bar-volume-indicator-font = 2
-bar-volume-fill =  -
+bar-volume-fill =  |
 bar-volume-fill-font = 2
 bar-volume-empty =  
 bar-volume-empty-font = 2
@@ -181,7 +184,7 @@ expand-right = true
 
 format-spacing = 1
 
-label-open = P
+label-open = " " 
 label-open-foreground = ${colors.foreground}
 label-close = P cancel
 label-close-foreground = ${colors.foreground}

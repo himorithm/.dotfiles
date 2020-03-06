@@ -72,6 +72,7 @@ bspc rule -a mpv desktop='^6' follow=on focus=on
 bspc rule -a Wfica desktop='^7' follow=on focus=on
 
 ## workspace 8 (system-settings)
+bspc rule -a Yad state=floating follow=off
 #bspc rule -a Lxappearance desktop='^8' state=floating follow=on
 #bspc rule -a Xfce4-settings-manager desktop='^8' state=floating follow=on
 #bspc rule -a Lightdm-gtk-greeter-settings desktop='^8' state=floating follow=on
