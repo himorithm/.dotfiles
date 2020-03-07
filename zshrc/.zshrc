@@ -102,6 +102,9 @@ export LANG=en_US.UTF-8
 
 
 export EDITOR=/usr/bin/vim
+export PAGER=/usr/bin/less
+
+
 
 alias reboot="sudo systemctl reboot"
 alias poweroff="sudo systemctl poweroff"
@@ -222,4 +225,9 @@ zle -N down-line-or-beginning-search
 
 [[ -n "${key[Up]}"   ]] && bindkey -- "${key[Up]}"   up-line-or-beginning-search
 [[ -n "${key[Down]}" ]] && bindkey -- "${key[Down]}" down-line-or-beginning-search
+
+
+export NNN_BM='n:~/work/Documents/notes/'
+export NNN_PLUG='o:fzopen;p:mocplay;d:diffs;v:imgview;t:imgthumb;m:vidthumb'
+export NNN_OPENER=xdg-open
 

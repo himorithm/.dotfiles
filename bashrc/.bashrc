@@ -1,6 +1,9 @@
 source /etc/profile
 
 export EDITOR=/usr/bin/vim
+export PAGER=/usr/bin/less
+export NNN_PLUG='o:fzopen;p:mocplay;d:diffs;m:nmount;n:notes;v:imgviu;t:imgthumb'
+
 
 alias reboot="sudo systemctl reboot"
 alias poweroff="sudo systemctl poweroff"
