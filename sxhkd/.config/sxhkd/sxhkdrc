@@ -38,9 +38,11 @@ super + alt + p
 super + alt + l
 	mpc play
 
-super + alt + l
+super + alt + n
 	mpc next
 
+super + alt + b
+	mpc prev
 # program launcher
 super + @space
 	rofi -modi run,drun,window -lines 12 -padding 18 -width 60 -location 0 -show drun -sidebar-mode -columns 3 -font "Noto Sans 8"

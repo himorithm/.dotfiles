@@ -138,9 +138,10 @@ alias personalbkp="bash ~/work/scripts/backup_personal.sh"
 alias sysbkp="bash ~/work/scripts/backup_system.sh"
 alias mobilebkp="bash ~/work/scripts/backup_mobile.sh"
 alias music=ncmpcpp
-#alias youtube-mp3='cd ~/media/Music/; youtube-dl --ignore-errors --extract-audio --audio-format mp3' 
+alias lswifi="nmcli conn show"
+#alias youtube-mp3='cd ~/media/Music/; youtube-dl --ignore-errors --extract-audio --audio-format mp3'
 
-#Set vi option enable 
+#Set vi option enable
 set -o vi
 
 
@@ -150,25 +151,25 @@ neofetch
 #Run PowerLine Shell
 
 function powerline_precmd() {
-	    PS1="$(powerline-shell --shell zsh $?)"
+        PS1="$(powerline-shell --shell zsh $?)"
     }
 
 function install_powerline_precmd() {
-	  for s in "${precmd_functions[@]}"; do
-		      if [ "$s" = "powerline_precmd" ]; then
-			            return
-				        fi
-					  done
-					    precmd_functions+=(powerline_precmd)
-				    }
+      for s in "${precmd_functions[@]}"; do
+              if [ "$s" = "powerline_precmd" ]; then
+                        return
+                        fi
+                      done
+                        precmd_functions+=(powerline_precmd)
+                    }
 
-			    if [ "$TERM" != "linux" ]; then
-				        install_powerline_precmd
-			    fi
+                if [ "$TERM" != "linux" ]; then
+                        install_powerline_precmd
+                fi
 
 source /home/himanshu/.config/broot/launcher/bash/br
 
-PATH="/home/himanshu/perl5/bin${PATH:+:${PATH}}"; export PATH;
+PATH=".:/home/himanshu/perl5/bin${PATH:+:${PATH}}:/home/himanshu/idea-IC-193.6494.35/bin"; export PATH;
 PERL5LIB="/home/himanshu/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
 PERL_LOCAL_LIB_ROOT="/home/himanshu/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
 PERL_MB_OPT="--install_base \"/home/himanshu/perl5\""; export PERL_MB_OPT;
@@ -211,11 +212,11 @@ key[Shift-Tab]="${terminfo[kcbt]}"
 # Finally, make sure the terminal is in application mode, when zle is
 # active. Only then are the values from $terminfo valid.
 if (( ${+terminfo[smkx]} && ${+terminfo[rmkx]} )); then
-	autoload -Uz add-zle-hook-widget
-	function zle_application_mode_start { echoti smkx }
-	function zle_application_mode_stop { echoti rmkx }
-	add-zle-hook-widget -Uz zle-line-init zle_application_mode_start
-	add-zle-hook-widget -Uz zle-line-finish zle_application_mode_stop
+    autoload -Uz add-zle-hook-widget
+    function zle_application_mode_start { echoti smkx }
+    function zle_application_mode_stop { echoti rmkx }
+    add-zle-hook-widget -Uz zle-line-init zle_application_mode_start
+    add-zle-hook-widget -Uz zle-line-finish zle_application_mode_stop
 fi
 
 #History Search
@@ -230,4 +231,7 @@ zle -N down-line-or-beginning-search
 export NNN_BM='n:~/work/Documents/notes/'
 export NNN_PLUG='o:fzopen;p:mocplay;d:diffs;v:imgview;t:imgthumb;m:vidthumb'
 export NNN_OPENER=xdg-open
+#Make Java applications beautiful
+export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.crossplatformlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel -Dsun.java2d.opengl=true'
+export _JAVA_AWT_WM_NONREPARTENTING=1
 

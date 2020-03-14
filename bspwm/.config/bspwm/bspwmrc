@@ -56,6 +56,7 @@ bspc rule -a qpdfview -startcenter desktop='^4' follow=on focus=on
 #bspc rule -a Font-manager desktop='^5' state=tiled follow=on focus=on
 #bspc rule -a Evince desktop='^5' follow=on focus=on
 #bspc rule -a Gucharmap desktop='^5' follow=on focus=on
+bspc rule -a jetbrains-idea-ce desktop='^5' state=floating follow=on
 
 ## workspace 6 (multimedia)
 #bspc rule -a Audacity desktop='^6' follow=on focus=on
@@ -73,7 +74,7 @@ bspc rule -a Wfica desktop='^7' follow=on focus=on
 
 ## workspace 8 (system-settings)
 bspc rule -a Yad state=floating follow=off
-#bspc rule -a Lxappearance desktop='^8' state=floating follow=on
+bspc rule -a Steam desktop='^8' state=floating follow=on
 #bspc rule -a Xfce4-settings-manager desktop='^8' state=floating follow=on
 #bspc rule -a Lightdm-gtk-greeter-settings desktop='^8' state=floating follow=on
 #bspc rule -a System-config-printer.py desktop='^8' state=floating follow=on
