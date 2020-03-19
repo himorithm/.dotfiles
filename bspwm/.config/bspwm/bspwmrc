@@ -163,3 +163,7 @@ pkill redshift
 #Start Clipboard Manager 
 pkill greenclip 
 greenclip daemon
+
+#Mount MyBook External Disk
+~/work/scripts/mount_mybook.sh
+
