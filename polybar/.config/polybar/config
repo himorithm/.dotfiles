@@ -33,7 +33,13 @@ width=98%
 wm-restack = bspwm
 modules-left = bspwm
 modules-center = xwindow
-modules-right =  mpd pulseaudio  popup-calendar updates-arch-combined powermenu
+modules-right =  mpd pulseaudio myuptime popup-calendar updates-arch-combined powermenu
+
+[module/myuptime]
+type = custom/script
+exec = echo "|$(uptime -p)"
+interval = 600
+format-foreground = #EFEA08
 
 [module/updates-arch-combined]
 type = custom/script

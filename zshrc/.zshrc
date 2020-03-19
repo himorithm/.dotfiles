@@ -109,9 +109,12 @@ export PAGER=/usr/bin/less
 alias reboot="sudo systemctl reboot"
 alias poweroff="sudo systemctl poweroff"
 alias halt="sudo systemctl halt"
+alias suspendh="systemctl suspend-then-hibernate"
 alias suspend="systemctl suspend"
+alias hibernate="systemctl hibernate"
 alias notes="cd ~/work/Documents/notes"
 alias scripts="cd ~/work/scripts"
+alias chgwall="feh -rz --bg-fill $HOME/media/Pictures/WallPapers/*"
 
 ## Show hidden files ##
 
