@@ -20,3 +20,5 @@ My personal dot files on ArchLinux. Backup using GNU stow.
 * xinitrc
 * zshenv
 * zshrc
+
+Himanshu Ahire
