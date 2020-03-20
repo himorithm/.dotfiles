@@ -33,7 +33,7 @@ width=98%
 wm-restack = bspwm
 modules-left = bspwm
 modules-center = xwindow
-modules-right =  mpd pulseaudio myuptime temperature  popup-calendar updates-arch-combined powermenu
+modules-right =  mpd pulseaudio myidle myuptime temperature  popup-calendar updates-arch-combined powermenu
 
 [module/temperature]
 type = internal/temperature
@@ -43,6 +43,15 @@ hwmon-path = /sys/devices/pci0000:00/0000:00:01.1/0000:01:00.0/hwmon/hwmon0/temp
 base-temperature = 30
 warn-temperature = 60
 label-warn-background = #732929
+format-foreground = #EFEA08
+
+
+[module/myidle]
+type = custom/script
+;sleep if idle more than 10 mins
+exec = ~/.config/polybar/scripts/idle_sleep.sh 10
+interval = 300
+format-foreground = #EFEA08
 
 
 [module/myuptime]

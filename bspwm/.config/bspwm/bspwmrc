@@ -151,7 +151,7 @@ feh -rz --bg-fill $HOME/media/Pictures/WallPapers/*
 #notify-send "Music Deamon Started"
 #notify-send "Connected: $(nmcli conn show --active | awk '!/NAME/{ print $1 " on " $4 }' )"
 ## reload the cursor theme
-#xsetroot -cursor_name left_ptr
+xsetroot -cursor_name left_ptr
 
 ## polybar
 $HOME/.config/polybar/launch.sh 
@@ -164,6 +164,5 @@ pkill redshift
 pkill greenclip 
 greenclip daemon
 
-#Mount MyBook External Disk
-~/work/scripts/mount_mybook.sh
+
 
