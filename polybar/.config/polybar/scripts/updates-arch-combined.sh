@@ -15,6 +15,7 @@ fi
 updates=$(("$updates_arch" + "$updates_aur"))
 
 if [ "$updates" -gt 0 ]; then
+    notify-send "$updates  Avilable"
     echo "|$updates  |"
 else
     echo ""

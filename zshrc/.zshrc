@@ -137,11 +137,12 @@ alias ping='ping -c 5'
 # Do not wait interval 1 second, go fast #
 alias fastping='ping -c 100 -s.2'
 #alias ports='netstat -tulanp'
-alias personalbkp="bash ~/work/scripts/backup_personal.sh"
+alias personalbkp="bash ~/work/scripts/backup_mybook.sh"
 alias sysbkp="bash ~/work/scripts/backup_system.sh"
 alias mobilebkp="bash ~/work/scripts/backup_mobile.sh"
 alias music=ncmpcpp
 alias lswifi="nmcli conn show"
+alias mountbook="~/work/scripts/mount_mybook.sh"
 #alias youtube-mp3='cd ~/media/Music/; youtube-dl --ignore-errors --extract-audio --audio-format mp3'
 
 #Set vi option enable

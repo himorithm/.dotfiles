@@ -49,7 +49,7 @@ format-foreground = #EFEA08
 [module/myidle]
 type = custom/script
 ;sleep if idle more than 10 mins
-exec = ~/.config/polybar/scripts/idle_sleep.sh 10
+exec = ~/.config/polybar/scripts/idleActions.sh 10
 interval = 300
 format-foreground = #EFEA08
 
