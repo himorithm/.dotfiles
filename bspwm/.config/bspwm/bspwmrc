@@ -29,6 +29,7 @@ bspc config normal_border_color "#2f343f"
 bspc rule -a firefox desktop='^2' follow=on focus=on
 bspc rule -a qutebrowser desktop='^2' follow=on focus=on
 bspc rule -a brave-browser desktop='^2' follow=on focus=on
+bspc rule -a Surf  desktop='^2' follow=on focus=on state=tiled 
 #bspc rule -a Transmission-gtk desktop='^2' follow=on focus=on
 
 ## workspace 3 (file-manager)
