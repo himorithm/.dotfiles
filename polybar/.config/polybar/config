@@ -33,7 +33,7 @@ width=98%
 wm-restack = bspwm
 modules-left = bspwm
 modules-center = xwindow
-modules-right =  mpd pulseaudio caronaStats myidle myuptime temperature  popup-calendar updates-arch-combined powermenu
+modules-right =  mpd pulseaudio coronaStats myidle myuptime temperature  popup-calendar updates-arch-combined powermenu
 
 [module/temperature]
 type = internal/temperature
@@ -60,11 +60,11 @@ exec = echo "|$(uptime -p)|"
 interval = 600
 format-foreground = #EFEA08
 
-[module/caronaStats]
+[module/coronaStats]
 type = custom/script
-exec = ~/.config/polybar/scripts/carona.sh
-;update every 4 hours
-interval = 14400
+exec = ~/.config/polybar/scripts/corona.sh
+;update every 1 hour
+interval = 360
 format-foreground = #EFEA08
 
 [module/updates-arch-combined]
