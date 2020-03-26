@@ -21,7 +21,7 @@ function actions(){
     xdotool mousemove_relative 3 3
     #run action
     systemctl suspend-then-hibernate
-    xdotool mousemove_relative -3 -3
+    xdotool mousemove_relative 3 3
 }
 
 function status(){
