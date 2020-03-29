@@ -115,6 +115,7 @@ alias hibernate="systemctl hibernate"
 alias notes="cd ~/work/Documents/notes"
 alias scripts="cd ~/work/scripts"
 alias chgwall="feh -rz --bg-fill $HOME/media/Pictures/WallPapers/*"
+alias technotes="cd ~/work/Documents/notes/latex/technotes"
 
 ## Show hidden files ##
 

@@ -26,9 +26,9 @@ bspc config normal_border_color "#2f343f"
 #bspc rule -a Xfce4-terminal desktop='^1' follow=on focus=on
 
 ## workspace 2 (web browsers)
-bspc rule -a firefox desktop='^2' follow=on focus=on
+bspc rule -a firefox desktop='^3' follow=on focus=on
 bspc rule -a qutebrowser desktop='^2' follow=on focus=on
-bspc rule -a Brave-browser desktop='^2' follow=on focus=on
+bspc rule -a Brave-browser desktop='^3' follow=on focus=on
 bspc rule -a Surf  desktop='^2' follow=on focus=on state=tiled 
 #bspc rule -a Transmission-gtk desktop='^2' follow=on focus=on
 

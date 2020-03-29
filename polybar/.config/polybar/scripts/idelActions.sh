@@ -15,11 +15,14 @@ exist (){
 }
 
 function actions(){
+    [[ "$idleRestart" = "true" ]] && { export idleRestart="false"; exit 0; }
+   
     notify-send "Suspending Session"
     sleep 5
     #reset Idle Time
     xdotool mousemove_relative 3 3
     #run action
+    export idleRestart="true"
     systemctl suspend-then-hibernate
     xdotool mousemove_relative 3 3
 }
