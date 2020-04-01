@@ -1,6 +1,6 @@
 source /etc/profile
 
-export EDITOR=/usr/bin/vim
+export EDITOR=/usr/bin/nvim
 export PAGER=/usr/bin/less
 export NNN_PLUG='o:fzopen;p:mocplay;d:diffs;m:nmount;n:notes;v:imgviu;t:imgthumb'
 
@@ -19,10 +19,10 @@ alias grep='grep --color=auto'
 alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias bc='bc -l'
-alias vi=vim
-alias svi='sudo vim'
-alias vis='vim "+set si"'
-alias edit='vim'
+alias vi=nvim
+alias svi='sudo nvim'
+alias vis='nvim "+set si"'
+alias edit='nvim'
 alias l.='/usr/bin/ls -d .* --color=auto'
 alias l='/usr/bin/ls --color=auto  -la'
 #alias ls='br -dp'

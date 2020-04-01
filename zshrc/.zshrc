@@ -101,7 +101,7 @@ export LANG=en_US.UTF-8
 #
 
 
-export EDITOR=/usr/bin/vim
+export EDITOR=/usr/bin/nvim
 export PAGER=/usr/bin/less
 
 
@@ -124,10 +124,11 @@ alias grep='grep --color=auto'
 alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias bc='bc -l'
-alias vi=vim
-alias svi='sudo vim'
-alias vis='vim "+set si"'
-alias edit='vim'
+alias vi=nvim
+alias vim=nvim
+alias svi='sudo nvim'
+alias vis='nvim "+set si"'
+alias edit='nvim'
 alias l.='/usr/bin/ls -d .* --color=auto'
 alias ll='/usr/bin/ls --color=auto  -la'
 #alias ls='br -dp'
@@ -239,4 +240,7 @@ export NNN_OPENER=xdg-open
 #Make Java applications beautiful
 export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.crossplatformlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel -Dsun.java2d.opengl=true'
 export _JAVA_AWT_WM_NONREPARTENTING=1
+
+export TERM=xterm-256color
+
 
