@@ -116,6 +116,8 @@ alias notes="cd ~/work/Documents/notes"
 alias scripts="cd ~/work/scripts"
 alias chgwall="feh -rz --bg-fill $HOME/media/Pictures/WallPapers/*"
 alias technotes="cd ~/work/Documents/notes/latex/technotes"
+alias bwork="br ~/work/"
+alias blueh="sh ~/work/scripts/blueHeadSet.sh"
 
 ## Show hidden files ##
 
@@ -233,6 +235,9 @@ zle -N down-line-or-beginning-search
 [[ -n "${key[Up]}"   ]] && bindkey -- "${key[Up]}"   up-line-or-beginning-search
 [[ -n "${key[Down]}" ]] && bindkey -- "${key[Down]}" down-line-or-beginning-search
 
+bindkey -v
+bindkey '^R' history-incremental-search-backward
+
 
 export NNN_BM='n:~/work/Documents/notes/'
 export NNN_PLUG='o:fzopen;p:mocplay;d:diffs;v:imgview;t:imgthumb;m:vidthumb'
@@ -243,4 +248,22 @@ export _JAVA_AWT_WM_NONREPARTENTING=1
 
 export TERM=xterm-256color
 
+
+#Zsh vi status line
+function zle-line-init zle-keymap-select {
+    RPS1="${${KEYMAP/vicmd/-- NORMAL --}/(main|viins)/-- INSERT --}"
+    RPS2=$RPS1
+    zle reset-prompt
+}
+zle -N zle-line-init
+zle -N zle-keymap-select
+
+
+#terminfo_down_sc=$terminfo[cud1]$terminfo[cuu1]$terminfo[sc]$terminfo[cud1]
+#function zle-line-init zle-keymap-select {
+#    PS1_2="${${KEYMAP/vicmd/-- NORMAL --}/(main|viins)/-- INSERT --}"
+#    PS1="%{$terminfo_down_sc$PS1_2$terminfo[rc]%}%~ %# "
+#    zle reset-prompt
+#}
+preexec () { print -rn -- $terminfo[el]; }
 

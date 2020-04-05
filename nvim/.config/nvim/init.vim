@@ -12,6 +12,7 @@ Plug 'plasticboy/vim-markdown'
 Plug 'elzr/vim-json'
 Plug 'cespare/vim-toml'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
+Plug 'tpope/vim-surround'
 
 call plug#end()
 
