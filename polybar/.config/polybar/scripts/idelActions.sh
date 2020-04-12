@@ -40,7 +40,7 @@ exist xprintidle xdotool systemctl notify-send
 
 oneMinute=60000
 #Convert to miliseconds
-maxIdleMili=$(( $oneMinute * $waitTime ))
+maxIdleMili=$(( $oneMinute * $waitTime * 60 ))
 
 #Get Idle time from xsession
 currentIdleMili=$(xprintidle)

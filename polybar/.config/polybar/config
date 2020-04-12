@@ -13,7 +13,7 @@ alert = #ebcb8b
 
 [bar/top]
 
-monitor = HDMI-A-1
+;monitor = HDMI-A-2
 height = 24
 fixed-center = true
 background = ${colors.background}

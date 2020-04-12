@@ -51,6 +51,10 @@ super + @space
 super + alt + @space
 	rofi -modi "clipboard:greenclip print" -show clipboard -run-command '{cmd}' -font "Noto Sans 8" -lines 12 -padding 18 -width 60 -location 0 
 
+#rofi-pass
+super + ctrl + @space
+    rofi-pass
+
 # make sxhkd reload its configuration files:
 super + Escape
 	pkill -USR1 -x sxhkd

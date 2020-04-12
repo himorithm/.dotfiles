@@ -118,6 +118,9 @@ alias chgwall="feh -rz --bg-fill $HOME/media/Pictures/WallPapers/*"
 alias technotes="cd ~/work/Documents/notes/latex/technotes"
 alias bwork="br ~/work/"
 alias blueh="sh ~/work/scripts/blueHeadSet.sh"
+alias blues="sh ~/work/scripts/bluestop.sh"
+alias site="cd ~/work/site/hugo/intothebasket.com/content/"
+alias sitescripts="cd ~/work/site/ssh/"
 
 ## Show hidden files ##
 
