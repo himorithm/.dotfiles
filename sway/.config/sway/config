@@ -18,14 +18,14 @@ set $term alacritty
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
-set $menu dmenu_path | dmenu | xargs swaymsg exec --
+#set $menu dmenu_path | dmenu | xargs swaymsg exec --
+set $menu bemenu-run -i -p "Search:" | xargs swaymsg exec --
 
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-default_border none
-#output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
-output * bg ~/media/Pictures/WallPapers/48885071893_c75fc57011_k.jpg fill
+output * bg /tmp/wallpaper.jpg fill
+#output * bg ~/media/Pictures/WallPapers/48885071893_c75fc57011_k.jpg fill
 #
 # Example configuration:
 #
@@ -73,7 +73,7 @@ output * bg ~/media/Pictures/WallPapers/48885071893_c75fc57011_k.jpg fill
 
     # Start your launcher
     bindsym $mod+d exec $menu
-    bindsym $mod+Shift+d exec greenclip print | dmenu | wl-copy -p
+    bindsym $mod+Shift+d exec greenclip print | bemenu -i -p "Copy" | wl-copy -p
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
@@ -225,13 +225,20 @@ bindsym $mod+alt+n exec mpc next
 
 bindsym $mod+alt+b exec mpc prev
 
+#Supend and hibernet
+#
+
+bindsym $mod+alt+Delete exec systemctl suspend-then-hibernate
+bindsym $mod+alt+End exec systemctl hibernate
+
+
 #
 # Status Bar:
 #
 # Read `man 5 sway-bar` for more information about this section.
 bar {
     position top
-#
+
 #    # When the status_command prints a new line to stdout, swaybar updates.
 #    # The default just shows the current date and time.
 #    status_command while date +'%Y-%m-%d %l:%M:%S %p'; do sleep 5; done
@@ -244,7 +251,51 @@ bar {
     }
 }
 
+#Custom settings
+default_border pixel 2
+default_floating_border pixel 2
+
+gaps outer 4
+gaps inner 4
+
+exec killall -q greenclip
 exec greenclip daemon 
+
+exec killall -q mpd
+exec mpd
+
+exec killall -q mako
+exec mako --anchor top-right > /tmp/mako.log 2>&1
+
+exec killall -q redshift
+exec redshift
+
+exec killall -q swayidle
+exec swayidle  timeout 1200 'systemctl suspend-then-hibernate'
+
+
+
+# Float some windows by default
+for_window [app_id="nm-connection-editor"] floating enable
+for_window [app_id="nmtui"] floating enable
+for_window [app_id="pavucontrol"] floating enable
+for_window [app_id="gnome-calculator"] floating enable
+for_window [app_id="feh"] floating enable
+for_window [app_id="Yad"] floating enable
+for_window [app_id="Steam"] floating enable
+for_window [app_id="mpv"] floating enable
+for_window [app_id="Vlc"] floating enable
+for_window [app_id="jetbrains-idea-ce"] floating enable
+
+#input * xkb_capslock enable
+#input * xkb_numlock enable
+
+# Color Configuration:
+# class                 border  backgr. text    indicator   child_border
+client.focused          #ebdbb2 #285577 #ebdbb2 #ebdbb2     #ebdbb2
+client.focused_inactive #888888 #5f676a #ffffff #404040     #888888
+client.unfocused        #888888 #222222 #888888 #404040     #888888
+client.urgent           #900000 #900000 #ffffff #900000     #900000
 
 
 include /etc/sway/config.d/*
