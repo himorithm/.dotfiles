@@ -19,12 +19,12 @@ set $term alacritty
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
 #set $menu dmenu_path | dmenu | xargs swaymsg exec --
-set $menu bemenu-run -i -p "Search:" | xargs swaymsg exec --
+set $menu bemenu-run -ibp "Search:" | xargs swaymsg exec --
 
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg /tmp/wallpaper.jpg fill
+output * bg ~/.wallpaper/wallpaper.jpg fill
 #output * bg ~/media/Pictures/WallPapers/48885071893_c75fc57011_k.jpg fill
 #
 # Example configuration:
@@ -73,7 +73,8 @@ output * bg /tmp/wallpaper.jpg fill
 
     # Start your launcher
     bindsym $mod+d exec $menu
-    bindsym $mod+Shift+d exec greenclip print | bemenu -i -p "Copy" | wl-copy -p
+    bindsym $mod+Shift+d exec greenclip print | bemenu -ibp "Copy:" | wl-copy -p
+    #bindsym $mod+Shift+d exec greenclip print | dmenu | wl-copy -p
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
@@ -242,7 +243,8 @@ bar {
 #    # When the status_command prints a new line to stdout, swaybar updates.
 #    # The default just shows the current date and time.
 #    status_command while date +'%Y-%m-%d %l:%M:%S %p'; do sleep 5; done
-    status_command while ~/.config/sway/scripts/swaybar.sh; do sleep 10; done
+    #status_command while ~/.config/sway/scripts/swaybar.sh; do sleep 10; done
+    swaybar_command waybar
 #
     colors {
         statusline #ffffff
