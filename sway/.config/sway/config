@@ -260,21 +260,19 @@ default_floating_border pixel 2
 gaps outer 4
 gaps inner 4
 
-exec killall -q greenclip
+exec pkill greenclip
 exec greenclip daemon 
 
-exec killall -q mpd
+exec pkill mpd
 exec mpd
 
-exec killall -q mako
+exec pkill qmako
 exec mako --anchor top-right > /tmp/mako.log 2>&1
 
-exec killall -q redshift
+exec pkill redshift
 exec redshift
 
-exec killall -q swayidle
-exec swayidle  timeout 1200 'systemctl suspend-then-hibernate'
-
+exec swayidle timeout 600 'systemctl suspend-then-hibernate'
 
 
 # Float some windows by default
