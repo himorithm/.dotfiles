@@ -270,3 +270,5 @@ zle -N zle-keymap-select
 #}
 preexec () { print -rn -- $terminfo[el]; }
 
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

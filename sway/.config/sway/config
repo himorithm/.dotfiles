@@ -19,7 +19,8 @@ set $term alacritty
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
 #set $menu dmenu_path | dmenu | xargs swaymsg exec --
-set $menu bemenu-run -ibp "Search:" | xargs swaymsg exec --
+#set $menu demenu-run -ibp "Search:" | xargs swaymsg exec --
+set $menu wofi -iIS run
 
 ### Output configuration
 #
@@ -69,11 +70,11 @@ output * bg ~/.wallpaper/wallpaper.jpg fill
     bindsym $mod+Return exec $term
 
     # Kill focused window
-    bindsym $mod+Shift+q kill
+    bindsym $mod+q kill
 
     # Start your launcher
     bindsym $mod+d exec $menu
-    bindsym $mod+Shift+d exec greenclip print | bemenu -ibp "Copy:" | wl-copy -p
+    bindsym $mod+Shift+d exec greenclip print | wofi  -iIS dmenu | wl-copy -p
     #bindsym $mod+Shift+d exec greenclip print | dmenu | wl-copy -p
 
     # Drag floating windows by holding down $mod and left mouse button.
