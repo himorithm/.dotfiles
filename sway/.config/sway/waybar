@@ -1,0 +1,5 @@
+# Set Status bar to waybar
+bar {
+    position top
+    swaybar_command waybar
+}

@@ -19,7 +19,6 @@ Plug 'arcticicestudio/nord-vim'
 
 call plug#end()
 
-colorscheme nord
 
 let g:nord_underline = 1
 let g:nord_italic = 1
@@ -38,5 +37,9 @@ let g:vim_markdown_no_extensions_in_markdown = 1
 let g:lightline = {
       \ 'colorscheme': 'nord',
       \ }
+
+colorscheme nord
+set termguicolors
+
 "Change Comment Color
-hi Comment ctermfg=DarkGreen
+hi Comment guifg=LightBlue
