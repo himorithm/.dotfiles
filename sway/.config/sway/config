@@ -22,7 +22,11 @@ set $menu wofi -iIS run
 
 #************************** Wallpaper *************************************
 
-output * bg ~/.wallpaper/wallpaper.jpg fill
+#Custom script to change wallpaper every time
+exec ~/.config/sway/scripts/change_random_wallpaper.sh
+
+#If need same wallpaper every time
+#output * bg ~/.wallpaper/wallpaper.jpg fill
 
 #************************** Key bindings **********************************
 # Basics:
@@ -188,6 +192,8 @@ bindsym $mod+alt+l exec mpc play
 bindsym $mod+alt+n exec mpc next
 
 bindsym $mod+alt+b exec mpc prev
+
+bindsym $mod+alt+w exec ~/.config/sway/scripts/change_wallpaper.sh
 
 # Print Screen to default location 
 bindsym $mod+Print exec grim -g "$(slurp)" 
