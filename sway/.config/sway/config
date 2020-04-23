@@ -10,7 +10,8 @@ set $term alacritty
 set $menu wofi -iIS run 
 
 # Wallpapers
-exec ~/.config/sway/scripts/change_random_wallpaper.sh
+#exec ~/.config/sway/scripts/change_random_wallpaper.sh
+output "*" bg  ~/.wallpaper/wallpaper.jpg fill
 
 # Status Bars
 include ~/.config/sway/waybar

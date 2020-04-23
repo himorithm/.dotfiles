@@ -102,14 +102,14 @@ window:
 # Font configuration
 #font:
   # Normal (roman) font face
-  #normal:
+  #  normal:
     # Font family
     #
     # Default:
     #   - (macOS) Menlo
     #   - (Linux/BSD) monospace
     #   - (Windows) Consolas
-    #family: Inconsolata
+    #  family: Inconsolata
 
     # The `style` can be specified to pick a specific face.
     #style: Regular
@@ -148,7 +148,7 @@ window:
     #style: Bold Italic
 
   # Point size
-  #size: 14.0
+  #size: 11.0
 
   # Offset is the extra space around each character. `offset.y` can be thought of
   # as modifying the line spacing, and `offset.x` as modifying the letter spacing.
@@ -180,16 +180,16 @@ window:
   #use_thin_strokes: true
 
 # If `true`, bold text is drawn using the bright color variants.
-#draw_bold_text_with_bright_colors: true
+draw_bold_text_with_bright_colors: true
 
-# Colors (GroveBox)
+# Colors (Tomorrow Night Bright)
 colors:
   # Default colors
   primary:
     # hard contrast: background = '#1d2021'
-    background: '#282828'
+    background: '#1d2021'
     # soft contrast: background = '#32302f'
-    foreground: '#d5c4a1'
+    foreground: '#ebdbb2'
 
   # Normal colors
   normal:
@@ -197,11 +197,21 @@ colors:
     red:     '#cc241d'
     green:   '#98971a'
     yellow:  '#d79921'
-    blue:    '#83a598'
+    blue:    '#458588'
     magenta: '#b16286'
     cyan:    '#689d6a'
     white:   '#a89984'
 
+  # Bright colors
+  bright:
+    black:   '#928374'
+    red:     '#fb4934'
+    green:   '#b8bb26'
+    yellow:  '#fabd2f'
+    blue:    '#83a598'
+    magenta: '#d3869b'
+    cyan:    '#8ec07c'
+    white:   '#ebdbb2'
 
     # Bright and dim foreground colors
     #
@@ -304,7 +314,7 @@ colors:
 #
 # Window opacity as a floating point number from `0.0` to `1.0`.
 # The value `0.0` is completely transparent and `1.0` is opaque.
-background_opacity: 1
+#background_opacity: 1
 
 #selection:
   #semantic_escape_chars: ",│`|:\"' ()[]{}<>\t"

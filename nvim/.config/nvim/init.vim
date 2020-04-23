@@ -5,7 +5,7 @@ source ~/.config/nvim/.vimrc
 call plug#begin('~/.config/nvim/plugged')
 
 Plug 'itchyny/lightline.vim'
-Plug 'vifm/vifm.vim'
+"Plug 'vifm/vifm.vim'
 Plug 'vimwiki/vimwiki'
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
@@ -16,14 +16,15 @@ Plug 'tpope/vim-surround'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'arcticicestudio/nord-vim'
+Plug 'morhetz/gruvbox'
 
 call plug#end()
 
 
-let g:nord_underline = 1
-let g:nord_italic = 1
-let g:nord_uniform_diff_background = 1
-let g:nord_cursor_line_number_background = 1
+"let g:nord_underline = 1
+"let g:nord_italic = 1
+"let g:nord_uniform_diff_background = 1
+"let g:nord_cursor_line_number_background = 1
 
 let g:vim_markdown_frontmatter = 1
 let g:vim_markdown_math = 1
@@ -35,11 +36,11 @@ let g:vim_markdown_no_extensions_in_markdown = 1
 
 
 let g:lightline = {
-      \ 'colorscheme': 'nord',
+      \ 'colorscheme': 'gruvbox',
       \ }
 
-colorscheme nord
+colorscheme gruvbox
 set termguicolors
 
 "Change Comment Color
-hi Comment guifg=LightBlue
+"hi Comment guifg=LightBlue
