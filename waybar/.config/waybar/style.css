@@ -48,8 +48,8 @@
 
 /* The whole bar */
 #waybar {
-    background-color: #323232;
-    color: white;
+    background-color: #3b4252;
+    color: #d8dee9; 
     font-family: Cantarell, Noto Sans, sans-serif;
     font-size: 12px;
 }
