@@ -1,69 +1,30 @@
-#output * bg Default config for sway
-#
-# Copy this to ~/.config/sway/config and edit it to your liking.
-#
-# Read `man 5 sway` for a complete reference.
 
-### Variables
-#
+#****************************** Variables **********************************
+
 # Logo key. Use Mod1 for Alt.
 set $mod Mod4
+
 # Home row direction keys, like vim
 set $left h
 set $down j
 set $up k
 set $right l
+
 # Your preferred terminal emulator
 set $term alacritty
+
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
 #set $menu dmenu_path | dmenu | xargs swaymsg exec --
 #set $menu demenu-run -ibp "Search:" | xargs swaymsg exec --
-set $menu wofi -iIS run
+set $menu wofi -iIS run 
 
-### Output configuration
-#
-# Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
+#************************** Wallpaper *************************************
+
 output * bg ~/.wallpaper/wallpaper.jpg fill
-#output * bg ~/media/Pictures/WallPapers/48885071893_c75fc57011_k.jpg fill
-#
-# Example configuration:
-#
-#   output HDMI-A-1 resolution 1920x1080 position 1920,0
-#
-# You can get the names of your outputs by running: swaymsg -t get_outputs
 
-### Idle configuration
-#
-# Example configuration:
-#
-# exec swayidle -w \
-#          timeout 300 'swaylock -f -c 000000' \
-#          timeout 600 'swaymsg "output * dpms off"' \
-#               resume 'swaymsg "output * dpms on"' \
-#          before-sleep 'swaylock -f -c 000000'
-#
-# This will lock your screen after 300 seconds of inactivity, then turn off
-# your displays after another 300 seconds, and turn your screens back on when
-# resumed. It will also lock your screen before your computer goes to sleep.
-
-### Input configuration
-#
-# Example configuration:
-#
-#   input "2:14:SynPS/2_Synaptics_TouchPad" {
-#       dwt enabled
-#       tap enabled
-#       natural_scroll enabled
-#       middle_emulation enabled
-#   }
-#
-# You can get the names of your inputs by running: swaymsg -t get_inputs
-# Read `man 5 sway-input` for more information about this section.
-
-### Key bindings
-#
+#************************** Key bindings **********************************
 # Basics:
 #
     # Start a terminal
@@ -74,8 +35,9 @@ output * bg ~/.wallpaper/wallpaper.jpg fill
 
     # Start your launcher
     bindsym $mod+d exec $menu
-    bindsym $mod+Shift+d exec greenclip print | wofi  -iIS dmenu | wl-copy -p
-    #bindsym $mod+Shift+d exec greenclip print | dmenu | wl-copy -p
+
+    # Use launcher for Clipbord History
+    bindsym $mod+Shift+d exec ~/.config/sway/scripts/wofi-copy.sh
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
@@ -89,14 +51,15 @@ output * bg ~/.wallpaper/wallpaper.jpg fill
 
     # Exit sway (logs you out of your Wayland session)
     bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
-#
+
 # Moving around:
-#
-    # Move your focus around
+
+    # Move your focus around [h | j | k | l]
     bindsym $mod+$left focus left
     bindsym $mod+$down focus down
     bindsym $mod+$up focus up
     bindsym $mod+$right focus right
+
     # Or use $mod+[up|down|left|right]
     bindsym $mod+Left focus left
     bindsym $mod+Down focus down
@@ -113,10 +76,10 @@ output * bg ~/.wallpaper/wallpaper.jpg fill
     bindsym $mod+Shift+Down move down
     bindsym $mod+Shift+Up move up
     bindsym $mod+Shift+Right move right
-#
+
 # Workspaces:
-#
-    # Switch to workspace
+
+    # Switch to workspace [ 1 | 2 | 3 | 4 .. 0 ]
     bindsym $mod+1 workspace 1
     bindsym $mod+2 workspace 2
     bindsym $mod+3 workspace 3
@@ -127,7 +90,8 @@ output * bg ~/.wallpaper/wallpaper.jpg fill
     bindsym $mod+8 workspace 8
     bindsym $mod+9 workspace 9
     bindsym $mod+0 workspace 10
-    # Move focused container to workspace
+
+    # Move focused window to workspace
     bindsym $mod+Shift+1 move container to workspace 1
     bindsym $mod+Shift+2 move container to workspace 2
     bindsym $mod+Shift+3 move container to workspace 3
@@ -138,9 +102,7 @@ output * bg ~/.wallpaper/wallpaper.jpg fill
     bindsym $mod+Shift+8 move container to workspace 8
     bindsym $mod+Shift+9 move container to workspace 9
     bindsym $mod+Shift+0 move container to workspace 10
-    # Note: workspaces can have any name you want, not just numbers.
-    # We just use 1-10 as the default.
-#
+
 # Layout stuff:
 #
     # You can "split" the current object of your focus with
@@ -203,7 +165,7 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 
-#Custom Bindings
+#************* Custom Bindings **************************
 
 #Volume Up
 bindsym $mod+alt+bracketright exec pulsemixer --change-volume +5
@@ -217,7 +179,7 @@ bindsym $mod+alt+m exec pulsemixer --mute
 #Mute Volume
 bindsym $mod+alt+u exec pulsemixer --unmute
 
-#MPD Pause
+#MPD 
 
 bindsym $mod+alt+p exec mpc pause
 
@@ -227,56 +189,71 @@ bindsym $mod+alt+n exec mpc next
 
 bindsym $mod+alt+b exec mpc prev
 
-#Supend and hibernet
-#
+# Print Screen to default location 
+bindsym $mod+Print exec grim -g "$(slurp)" 
 
+#Supend and hibernet
 bindsym $mod+alt+Delete exec systemctl suspend-then-hibernate
 bindsym $mod+alt+End exec systemctl hibernate
+bindsym $mod+alt+Home exec systemctl reboot
 
+# Need numlock or capslock on 
+#input * xkb_capslock enable
+#input * xkb_numlock enable
 
-#
-# Status Bar:
-#
-# Read `man 5 sway-bar` for more information about this section.
+#******************** Status Bar ********************************
 bar {
     position top
-
-#    # When the status_command prints a new line to stdout, swaybar updates.
-#    # The default just shows the current date and time.
-#    status_command while date +'%Y-%m-%d %l:%M:%S %p'; do sleep 5; done
-    #status_command while ~/.config/sway/scripts/swaybar.sh; do sleep 10; done
     swaybar_command waybar
-#
-    colors {
-        statusline #ffffff
-        background #323232
-        inactive_workspace #32323200 #32323200 #5c5c5c
-    }
 }
 
-#Custom settings
+#******************** Custom Sway Settings ********************************
+
 default_border pixel 2
 default_floating_border pixel 2
-
 gaps outer 4
 gaps inner 4
 
-exec pkill greenclip
-exec greenclip daemon 
+#Nordic Color Palet
 
-exec pkill mpd
-exec mpd
+# Palette
+set $black    #3b4252 
+set $gray     #d8dee9
+set $lred     #bf616a
+set $blue     #5e81ac
+set $lblue    #88c0d0
+set $white    #eceff4
+set $yellow   #ebcb8b
 
-exec pkill qmako
-exec mako --anchor top-right > /tmp/mako.log 2>&1
+# Color                 border    background text    indicator  child_border
+client.focused          $yellow   $blue      $gray   $yellow     $yellow
+client.focused_inactive $white    $black     $gray   $gray      $gray
+client.unfocused        $black    $black     $gray   $black     $blue
+client.urgent           $lred     $black     $gray   $lred      $lblue
 
-exec pkill redshift
-exec redshift
+#******************** Run Applications *******************************
 
+#Notifications
+exec mako 
+
+#Run Applciations on startup
+exec swaymsg "workspace 3; exec firefox"
+exec swaymsg "workspace 5; exec thunderbird"
+exec swaymsg "workspace 1; exec alacritty --title terminalOne --command vim"
+exec swaymsg "workspace 1; exec alacritty --title terminalTwo"
+exec swaymsg "workspace 4; exec alacritty --title ncmpcpp --command ncmpcpp"
+
+#Safely start background applications
+exec ~/.config/sway/scripts/start_clipboard.sh
+exec ~/.config/sway/scripts/start_redshift.sh
+exec ~/.config/sway/scripts/start_mpd.sh
 exec swayidle timeout 600 'systemctl suspend-then-hibernate'
 
+#Focus on Firefox on startup
+exec swaymsg 'workspace 3'
+exec swaymsg '[title="Firefox"] focus'
 
-# Float some windows by default
+# Float some applications by default
 for_window [app_id="nm-connection-editor"] floating enable
 for_window [app_id="nmtui"] floating enable
 for_window [app_id="pavucontrol"] floating enable
@@ -286,17 +263,23 @@ for_window [app_id="Yad"] floating enable
 for_window [app_id="Steam"] floating enable
 for_window [app_id="mpv"] floating enable
 for_window [app_id="Vlc"] floating enable
+
+#******************** Workspace Management *******************************
+
+assign [window_role="^browser$"] → workspace 3
+
+# IntelliJ
+assign [class="jetbrains-idea" title="(.*)IntelliJ IDEA"] → 6 
+assign [class="sun-awt-X11-XFramePeer" class="jetbrains-idea"] → 6 
+assign [class="sun-awt-X11-XWindowPeer" class="java-lang-Thread"] → 6 
+
+for_window [class="sun-awt-X11-XWindowPeer" class="java-lang-Thread"] floating enable
 for_window [app_id="jetbrains-idea-ce"] floating enable
+for_window [class="jetbrains-idea" title="(.*)Default Changelist"] fullscreen enable
 
-#input * xkb_capslock enable
-#input * xkb_numlock enable
-
-# Color Configuration:
-# class                 border  backgr. text    indicator   child_border
-client.focused          #ebdbb2 #285577 #ebdbb2 #ebdbb2     #ebdbb2
-client.focused_inactive #888888 #5f676a #ffffff #404040     #888888
-client.unfocused        #888888 #222222 #888888 #404040     #888888
-client.urgent           #900000 #900000 #ffffff #900000     #900000
+#Assign Workspace to Other Applications
+assign [class="Thunderbird"] → workspace 5
+assign [class="ncmpcpp"] → workspace 4
 
 
 include /etc/sway/config.d/*

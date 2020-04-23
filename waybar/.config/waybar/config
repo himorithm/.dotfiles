@@ -146,13 +146,13 @@
         "disable-scroll": true,
         "format": "{icon} {name}",
         "format-icons": {
-            "1:WWW": "龜", // Icon: firefox-browser
-            "2:Mail": "", // Icon: mail
-            "3:Editor": "", // Icon: code
-            "4:Terminals": "", // Icon: terminal
-            "8:Documents": "", // Icon: book
-            "9:Multimedia": "", // Icon: play-circle
-            "10:Torrent": "", // Icon: cloud-download-alt
+            "1": "", // Icon: terminal
+            "2": "", // Icon: code
+            "3": "龜", // Icon: firefox-browser
+            "4": "", // Icon: play-circle
+            "5": "", // Icon: mail
+            "6": "", // Icon: book
+            "10": "", // Icon: cloud-download-alt
             "urgent": "",
             "focused": "",
             "default": ""
