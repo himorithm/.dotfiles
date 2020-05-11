@@ -2,21 +2,21 @@
 exec mako 
 
 #Run Applciations on startup
-exec swaymsg "workspace 3; exec firefox"
+exec swaymsg "workspace 3; exec qutebrowser"
 exec swaymsg "workspace 5; exec thunderbird"
-exec swaymsg "workspace 1; exec alacritty --title terminalOne --command vim"
+exec swaymsg "workspace 1; exec alacritty --title terminalOne"
 exec swaymsg "workspace 1; exec alacritty --title terminalTwo"
 exec swaymsg "workspace 4; exec alacritty --title ncmpcpp --command ncmpcpp"
 
 #Safely start background applications
 exec ~/.config/sway/scripts/start_clipboard.sh
-exec ~/.config/sway/scripts/start_redshift.sh
+#exec ~/.config/sway/scripts/start_redshift.sh
 exec ~/.config/sway/scripts/start_mpd.sh
 exec swayidle timeout 600 'systemctl suspend-then-hibernate'
 
 #Focus on Firefox on startup
 exec swaymsg 'workspace 3'
-exec swaymsg '[title="Firefox"] focus'
+exec swaymsg '[title="qutebrowser"] focus'
 
 # Float some applications by default
 for_window [app_id="nm-connection-editor"] floating enable
@@ -28,19 +28,22 @@ for_window [app_id="Yad"] floating enable
 for_window [app_id="Steam"] floating enable
 for_window [app_id="mpv"] floating enable
 for_window [app_id="Vlc"] floating enable
+for_window [app_id="jetbrains-idea-ce"] floating enable
+for_window [app_id="jetbrains-pycharm-ce"] floating enable
 
 #******************** Workspace Management *******************************
 
 assign [window_role="^browser$"] → workspace 3
 
 # IntelliJ
-assign [class="jetbrains-idea" title="(.*)IntelliJ IDEA"] → 6 
-assign [class="sun-awt-X11-XFramePeer" class="jetbrains-idea"] → 6 
+assign [class="jetbrains-idea-ce" title="(.*)IntelliJ IDEA"] → 6 
+assign [class="jetbrains-pycharm-ce" title="(.*)IntelliJ IDEA"] → 6 
+assign [class="sun-awt-X11-XFramePeer" class="jetbrains-idea-ce"] → 6 
 assign [class="sun-awt-X11-XWindowPeer" class="java-lang-Thread"] → 6 
 
 for_window [class="sun-awt-X11-XWindowPeer" class="java-lang-Thread"] floating enable
 for_window [app_id="jetbrains-idea-ce"] floating enable
-for_window [class="jetbrains-idea" title="(.*)Default Changelist"] fullscreen enable
+for_window [class="jetbrains-idea-ce" title="(.*)Default Changelist"] fullscreen enable
 
 #Assign Workspace to Other Applications
 assign [class="Thunderbird"] → workspace 5

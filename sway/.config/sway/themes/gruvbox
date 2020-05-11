@@ -34,8 +34,8 @@ set $urgent_indicator $c3
 
 # Set inner/outer gaps
 default_border normal 0
-gaps inner 2
-gaps outer 8
+gaps inner 12 
+gaps outer 12 
 
 # Smart gaps (gaps used if only more than one container on the workspace)
 #smart_gaps on
@@ -46,7 +46,7 @@ smart_borders on
 # Hide Title Bars
 #for_window [app_id="^.*"] opacity 0.95
 default_border pixel 2
-default_floating_border pixel 4
+default_floating_border pixel 2
 hide_edge_borders smart
 
 client.focused $focused_bgcolor $focused_bgcolor $focused_textcolor $focused_indicator $focused_bgcolor

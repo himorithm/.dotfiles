@@ -32,9 +32,15 @@ set noshowmode
 set backspace=indent,eol,start                                    " More powerful backspacing
 set whichwrap+=<,>,h,l
 
+" Enable folding
+set foldmethod=indent
+set foldlevel=99
+" Enable folding with the spacebar
+nnoremap <space> za
+
 set history=1000
 set nocompatible
-set nofoldenable                                                  " disable folding"
+"set nofoldenable                                                  " disable folding"
 set confirm                                                       " prompt when existing from an unsaved file
 set t_Co=256                                                      " Explicitly tell vim that the terminal has 256 colors "
 "set mouse=a                                                       " use mouse in all modes
@@ -134,6 +140,18 @@ endfunction
 " http://beerpla.net/2008/04/02/how-to-add-a-vim-file-extension-to-syntax-highlighting/
 au BufNewFile,BufRead *.thrift set filetype=idl
 
+"au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
+
+
+au BufNewFile,BufRead *.js, *.html, *.css
+    \ set tabstop=2
+    \ set softtabstop=2
+    \ set shiftwidth=2
+
+
+"Enable Line Wrap in MarkDown
+
+
 
 " http://vim.wikia.com/wiki/Indenting_source_code
 " Using the "after" directory as above is recommended, but it is possible to put commands such as the following in your vimrc as an alternative:
@@ -145,6 +163,24 @@ autocmd FileType c setlocal expandtab shiftwidth=4 softtabstop=4 cindent
 autocmd FileType javascript setlocal expandtab shiftwidth=4 softtabstop=4
 autocmd FileType html setlocal expandtab shiftwidth=4 softtabstop=4
 autocmd FileType idl  setlocal expandtab shiftwidth=4 softtabstop=4
+autocmd FileType markdown setlocal wrap textwidth=79
+autocmd FileType python setlocal expandtab autoindent tabstop=4 softtabstop=4 shiftwidth=4 textwidth=79 fileformat=unix
+autocmd FileType java setlocal expandtab shiftwidth=4 softtabstop=4 cindent
+
+" Java Auto Complete 
+autocmd FileType java abbr psvm public static void main(String[] args){<CR>}<esc>O
+autocmd FileType java abbr pkg package com.intothebasket. ;<CR><esc>1k$1hi
+autocmd FileType java abbr sout System.out.println("");<esc>2hi
+autocmd FileType java abbr fori for (int i = 0; i < ; i++) {<esc>7hi
+autocmd FileType java abbr fori for (int i = 0; i < ; i++) {<CR><CR>}<CR><esc>3k8w
+autocmd FileType java abbr pcl public class {<CR><CR>}<CR><esc>3k13li
+autocmd FileType java abbr pcl public class {<CR><CR>}<CR><esc>3k13li
+autocmd FileType java abbr { {<CR><CR>}<CR><esc>2ki<Tab>
+autocmd FileType java abbr { {<CR><CR>}<CR><esc>2ki<Tab>
+autocmd FileType java abbr imp import ;<CR><esc>1k1wi
+autocmd FileType java abbr ps public static 
+autocmd FileType java abbr cat catch(Exception e) {<CR>e.printStackTrace();<CR>}<CR><esc>
+
 
 " Custom-Micros
 " Surround current word with back quote
@@ -155,6 +191,9 @@ let @q='c3iW**"**'
 " Break 
 " current line to max 80 chars. Wrap text
 let @f='80lwi'
+
+"Markdown Make List
+let @l='^i* €kddd€kr'
 
 "Some Shortcuts
 let mapleader = ","
@@ -170,7 +209,7 @@ nnoremap <leader>h :noh<CR>
 " reload config
 nnoremap <leader>r :source ~/.config/nvim/init.vim<CR>
 "save
-nnoremap <leader>s :w<CR>
+nnoremap <leader>s :w<bar>MakeTags<CR><CR>
 " Next Buffer
 nnoremap <leader>n :bn<CR>
 " Previous Buffer
@@ -186,8 +225,15 @@ nnoremap <leader>od  :Files ~/work/Documents<CR>
 nnoremap <leader>ob  :~/<CR>
 nnoremap <leader>owb :~/work/<CR>
 
+"Manage Git
+"
+nnoremap <leader>ga :Git add . <bar>Gstatus<CR>
+nnoremap <leader>gs :Gstatus<CR>
+nnoremap <leader>gc :Git commit<CR>
+nnoremap <leader>gp :Git push<bar>Gstatus<CR>
+
 "Change current local directory
-nnoremap <leader>cd :cd %:p:h<CR>
+nnoremap <leader>cd :cd %:p:h<bar>pwd<CR>
 
 nnoremap <leader>ob :Buffers<CR>
 
@@ -201,11 +247,16 @@ nnoremap <leader>w @f
 nnoremap <leader>b @w
 
 " Markdown code
-nnoremap <leader>lb @q
+nnoremap <leader>v @q
 
 nnoremap <leader>t @s
+
+nnoremap <leader>l @l
+
+nnoremap <leader>8 i**<ESC>
+
 "auto complete using tab
-imap <Tab> <C-N>
+"imap <Tab> <C-N>
 
 " auto complete file path in insert mode
 imap <F2> <C-X><C-F>

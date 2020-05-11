@@ -12,23 +12,23 @@
 
 @keyframes blink-warning {
     70% {
-        color: white;
+        color: #a89984;
     }
 
     to {
-        color: white;
-        background-color: orange;
+        color: #a89984;
+        background-color: #d65d8e;
     }
 }
 
 @keyframes blink-critical {
     70% {
-      color: white;
+      color: #a89984;
     }
 
     to {
-        color: white;
-        background-color: red;
+        color: #a89984;
+        background-color: #cc241d;
     }
 }
 
@@ -48,8 +48,8 @@
 
 /* The whole bar */
 #waybar {
-    background-color: #1d2021;
-    color: #689d6a;
+    background-color: #282828;
+    color: #ebdbb2;
     font-family: Cantarell, Noto Sans, sans-serif;
     font-size: 12px;
 }
@@ -81,11 +81,11 @@
 }
 
 #battery.warning {
-    color: orange;
+    color: #cc241d ;
 }
 
 #battery.critical {
-    color: red;
+    color: #cc241d;
 }
 
 #battery.warning.discharging {
@@ -121,7 +121,7 @@
 }
 
 #memory.warning {
-    color: orange;
+    color: #d65d8e;
 }
 
 #memory.critical {
@@ -131,8 +131,8 @@
 }
 
 #mode {
-    background-color: #64727D;
-    border-bottom: 2px solid white;
+    background-color: #282828;
+    border-bottom: 2px solid #ebdbb2;
     /* To compensate for the top border and still have vertical centering */
     padding-top: 2px;
 }
@@ -142,7 +142,7 @@
 }
 
 #network.disconnected {
-    color: orange;
+    color: #d65d8e;
 }
 
 #pulseaudio {

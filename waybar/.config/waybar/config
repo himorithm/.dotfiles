@@ -142,6 +142,7 @@
     },
 
     "sway/workspaces": {
+        "tooltip": false,
         "all-outputs": false,
         "disable-scroll": true,
         "format": "{icon} {name}",
