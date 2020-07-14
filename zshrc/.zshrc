@@ -121,6 +121,10 @@ alias blueh="sh ~/work/scripts/blueHeadSet.sh"
 alias blues="sh ~/work/scripts/bluestop.sh"
 alias site="cd ~/work/site/hugo/intothebasket.com/content/"
 alias sitescripts="cd ~/work/site/ssh/"
+alias dwmwall="~/work/scripts/dwm_wall.sh"
+alias interview="cd ~/work/interview/"
+alias work="cd ~/work"
+alias iknow="cd ~/work/iknow"
 
 ## Show hidden files ##
 
@@ -136,7 +140,7 @@ alias vis='nvim "+set si"'
 alias edit='nvim'
 alias l.='/usr/bin/ls -d .* --color=auto'
 alias ll='/usr/bin/ls --color=auto  -la'
-#alias ls='br -dp'
+alias br='br -dp'
 
 
 # Stop after sending count ECHO_REQUEST packets #
@@ -150,14 +154,16 @@ alias mobilebkp="bash ~/work/scripts/backup_mobile.sh"
 alias music=ncmpcpp
 alias lswifi="nmcli conn show"
 alias mountbook="~/work/scripts/mount_mybook.sh"
+alias godwm="cd ~/work/suckless/dwm"
+
 #alias youtube-mp3='cd ~/media/Music/; youtube-dl --ignore-errors --extract-audio --audio-format mp3'
 
 #Set vi option enable
-set -o vi
+#set -o vi
 
 
 #Run Neofetch
-neofetch
+#neofetch
 
 #Run PowerLine Shell
 
@@ -180,7 +186,7 @@ neofetch
 
 source /home/himanshu/.config/broot/launcher/bash/br
 
-PATH=".:/home/himanshu/perl5/bin${PATH:+:${PATH}}:/home/himanshu/idea-IC-193.6494.35/bin"; export PATH;
+PATH=".:/home/himanshu/perl5/bin${PATH:+:${PATH}}:/home/himanshu/idea-IC-193.6494.35/bin:/home/himanshu/work/scripts/"; export PATH;
 PERL5LIB="/home/himanshu/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
 PERL_LOCAL_LIB_ROOT="/home/himanshu/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
 PERL_MB_OPT="--install_base \"/home/himanshu/perl5\""; export PERL_MB_OPT;
@@ -248,18 +254,19 @@ export NNN_OPENER=xdg-open
 #Make Java applications beautiful
 export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.crossplatformlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel -Dsun.java2d.opengl=true'
 export _JAVA_AWT_WM_NONREPARTENTING=1
+export JAVA_HOME=/usr/lib/jvm/default
 
 export TERM=xterm-256color
 
 
 #Zsh vi status line
-function zle-line-init zle-keymap-select {
-    RPS1="${${KEYMAP/vicmd/-- NORMAL --}/(main|viins)/-- INSERT --}"
-    RPS2=$RPS1
-    zle reset-prompt
-}
-zle -N zle-line-init
-zle -N zle-keymap-select
+#function zle-line-init zle-keymap-select {
+#    RPS1="${${KEYMAP/vicmd/-- NORMAL --}/(main|viins)/-- INSERT --}"
+#    RPS2=$RPS1
+#    zle reset-prompt
+#}
+#zle -N zle-line-init
+#zle -N zle-keymap-select
 
 
 #terminfo_down_sc=$terminfo[cud1]$terminfo[cuu1]$terminfo[sc]$terminfo[cud1]
