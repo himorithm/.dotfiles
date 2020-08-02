@@ -112,7 +112,7 @@ alias halt="sudo systemctl halt"
 alias suspendh="systemctl suspend-then-hibernate"
 alias suspend="systemctl suspend"
 alias hibernate="systemctl hibernate"
-alias notes="cd ~/work/Documents/notes"
+alias notes="cd ~/work/Documents/notes/latex/technotes/"
 alias scripts="cd ~/work/scripts"
 alias chgwall="feh -rz --bg-fill $HOME/media/Pictures/WallPapers/*"
 alias technotes="cd ~/work/Documents/notes/latex/technotes"
@@ -124,8 +124,10 @@ alias sitescripts="cd ~/work/site/ssh/"
 alias dwmwall="~/work/scripts/dwm_wall.sh"
 alias interview="cd ~/work/interview/"
 alias work="cd ~/work"
+alias code="cd ~/work/code"
 alias iknow="cd ~/work/iknow"
-
+alias steamlib="cd ~/media/SteamLibrary/"
+alias idea="nohup ~/media/idea-IC-193.6494.35/bin/idea.sh $@ > /dev/null 2>&1 & "
 ## Show hidden files ##
 
 ## Colorize the grep command output for ease of use (good for log files)##
@@ -279,3 +281,11 @@ preexec () { print -rn -- $terminfo[el]; }
 
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/home/himanshu/.sdkman"
+[[ -s "/home/himanshu/.sdkman/bin/sdkman-init.sh" ]] && source "/home/himanshu/.sdkman/bin/sdkman-init.sh"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
