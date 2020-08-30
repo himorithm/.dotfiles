@@ -309,7 +309,7 @@ background_opacity: 0.9
   #save_to_clipboard: false
 
 # Allow terminal applications to change Alacritty's window title.
-dynamic_title: true
+#dynamic_title: true
 
 cursor:
   # Cursor style

@@ -4,7 +4,6 @@ export EDITOR=/usr/bin/nvim
 export PAGER=/usr/bin/less
 export NNN_PLUG='o:fzopen;p:mocplay;d:diffs;m:nmount;n:notes;v:imgviu;t:imgthumb'
 
-
 alias reboot="sudo systemctl reboot"
 alias poweroff="sudo systemctl poweroff"
 alias halt="sudo systemctl halt"
@@ -47,15 +46,15 @@ set -o vi
 #neofetch
 
 
-function _update_ps1() {
-	    PS1=$(powerline-shell $?)
-    }
+#function _update_ps1() {
+#	    PS1=$(powerline-shell $?)
+#    }
 
-if [[ $TERM != linux && ! $PROMPT_COMMAND =~ _update_ps1 ]]; then
-	    PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
-fi
+#if [[ $TERM != linux && ! $PROMPT_COMMAND =~ _update_ps1 ]]; then
+#	    PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
+#fi
 
-source /home/himanshu/.config/broot/launcher/bash/br
+#source /home/himanshu/.config/broot/launcher/bash/br
 
 PATH="/home/himanshu/perl5/bin${PATH:+:${PATH}}"; export PATH;
 PERL5LIB="/home/himanshu/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
@@ -65,10 +64,10 @@ PERL_MM_OPT="INSTALL_BASE=/home/himanshu/perl5"; export PERL_MM_OPT;
 
 ~/work/scripts/ufetch.sh
 
-if [[ $(ps --no-header --pid=$PPID --format=cmd) != "fish" ]]
-then
-	exec fish
-fi
+#if [[ $(ps --no-header --pid=$PPID --format=cmd) != "fish" ]]
+#then
+#	exec fis#h
+#fi
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 

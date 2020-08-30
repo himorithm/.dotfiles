@@ -1,14 +1,13 @@
 
-#Start NumLock
-#numlockx &
+#!/usr/bin/env bash
 
-# Start urxvt daemon
-#urxvtd -q -f -o
+##Start NumLock
+numlockx &
 
-# Spawn a terminal
-#urxvtc &
+#Configure Resolution , refresh rates and. Tear Free and AMD sync
+#xrandr --auto
+xrandr --output DisplayPort-0 --mode 2560x1440 --rate 74.97 --set TearFree on --set vrr_capable 1
 
-xrandr --auto
 
 [ -f ~/.xprofile ] && source ~/.xprofile
 
@@ -27,6 +26,18 @@ fi
 export _JAVA_AWT_WM_NONREPARENTING=1 
 export AWT_TOOLKIT=MToolkit
 
-#exec bspwm 
-exec dwm 
+
+if [[ "$2" == "steam" ]]; 
+then
+    exec steam 
+elif [[ "$2" == "openbox" ]];
+then
+    exec /usr/bin/openbox-session 
+else
+    pkill emacs
+    emacs -daemon & 
+    pkill mpd
+    mpd &
+    exec dwm
+fi
 

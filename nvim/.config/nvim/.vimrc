@@ -143,11 +143,10 @@ au BufNewFile,BufRead *.thrift set filetype=idl
 "au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
 
 
-au BufNewFile,BufRead *.js, *.html, *.css
-    \ set tabstop=2
-    \ set softtabstop=2
-    \ set shiftwidth=2
-
+"au BufNewFile,BufRead *.js, *.html, *.css
+"    \ set tabstop=2
+"    \ set softtabstop=2
+"    \ set shiftwidth=2
 
 "Enable Line Wrap in MarkDown
 
@@ -166,21 +165,38 @@ autocmd FileType idl  setlocal expandtab shiftwidth=4 softtabstop=4
 autocmd FileType markdown setlocal wrap textwidth=79
 autocmd FileType python setlocal expandtab autoindent tabstop=4 softtabstop=4 shiftwidth=4 textwidth=79 fileformat=unix
 autocmd FileType java setlocal expandtab shiftwidth=4 softtabstop=4 cindent
+autocmd FileType groovy setlocal expandtab shiftwidth=4 softtabstop=4 cindent
+
+" Markdown
+autocmd FileType markdown nnoremap <F5> :w<bar>!pandoc -f markdown-implicit_figures -s % -o %:r.pdf; <CR><CR>
+
 
 " Java Auto Complete 
 autocmd FileType java abbr psvm public static void main(String[] args){<CR>}<esc>O
 autocmd FileType java abbr pkg package com.intothebasket. ;<CR><esc>1k$1hi
 autocmd FileType java abbr sout System.out.println("");<esc>2hi
-autocmd FileType java abbr fori for (int i = 0; i < ; i++) {<esc>7hi
 autocmd FileType java abbr fori for (int i = 0; i < ; i++) {<CR><CR>}<CR><esc>3k8w
 autocmd FileType java abbr pcl public class {<CR><CR>}<CR><esc>3k13li
 autocmd FileType java abbr pcl public class {<CR><CR>}<CR><esc>3k13li
-autocmd FileType java abbr { {<CR><CR>}<CR><esc>2ki<Tab>
 autocmd FileType java abbr { {<CR><CR>}<CR><esc>2ki<Tab>
 autocmd FileType java abbr imp import ;<CR><esc>1k1wi
 autocmd FileType java abbr ps public static 
 autocmd FileType java abbr cat catch(Exception e) {<CR>e.printStackTrace();<CR>}<CR><esc>
 
+"Javascript Auto Complete
+autocmd FileType javascript abbr con console.log('')<esc>1hi
+autocmd FileType javascript abbr { {<CR><CR>}<CR><esc>2ki<Tab>
+autocmd FileType javascript abbr fori for (let i = 0; i < ; i++) {<CR><CR>}<CR><esc>3k8w
+autocmd FileType javascript abbr ifi if(){<CR><CR>}<CR><esc>3k
+autocmd FileType javascript nnoremap <F5> :w<bar>!node  %; <CR>
+
+"Groovy 
+autocmd FileType groovy abbr pkg package com.intothebasket. ;<CR><esc>1k$1hi
+autocmd FileType groovy abbr main  static void main(String[] args){<CR>}<esc>O
+autocmd FileType groovy abbr cls class {<CR>}<esc>2k2wi
+autocmd FileType groovy abbr pri println ""<esc>1hi
+autocmd FileType groovy abbr { {<CR><CR>}<CR><esc>2ki<Tab>
+autocmd FileType groovy nnoremap <F5> :w<bar>!groovy  %;<CR>
 
 " Custom-Micros
 " Surround current word with back quote
@@ -220,8 +236,8 @@ nnoremap <leader>d :bd<CR>
 nnoremap <leader>ov  :e ~/.config/nvim/.vimrc<CR>
 nnoremap <leader>o   :Files ~/
 nnoremap <leader>ow  :Files ~/work/<CR>
-nnoremap <leader>oc  :Files ~/.config/<CR>
-nnoremap <leader>od  :Files ~/work/Documents<CR>
+nnoremap <leader>od  :Files ~/.config/<CR>
+nnoremap <leader>oc  :Files ~/work/code/<CR>
 nnoremap <leader>ob  :~/<CR>
 nnoremap <leader>owb :~/work/<CR>
 
@@ -237,8 +253,6 @@ nnoremap <leader>cd :cd %:p:h<bar>pwd<CR>
 
 nnoremap <leader>ob :Buffers<CR>
 
-"Generate pdf using pandoc
-nnoremap <F5> :w<bar>!pandoc -f markdown-implicit_figures -s % -o %:r.pdf; <CR><CR>
 
 " Wrap Text max 80
 nnoremap <leader>w @f
