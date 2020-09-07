@@ -35,7 +35,7 @@ then
     exec /usr/bin/openbox-session 
 else
     pkill emacs
-    emacs -daemon & 
+    emacs --daemon & 
     pkill mpd
     mpd &
     exec dwm

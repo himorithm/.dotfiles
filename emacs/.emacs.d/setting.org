@@ -1,0 +1,398 @@
+#+title: Emacs Configuration
+#+auther: Himanshu Ahire
+#+startup show-paren-mode 
+
+* Emacs Settings
+** Personal details
+ #+begin_src emacs-lisp
+ (setq user-full-name "Himanshu Ahire"
+       user-mail-address "himanshu@poseo.net")
+ #+end_src
+
+** Customize Settings 
+*** Custom setting file
+    #+begin_src emacs-lisp
+    (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
+    (load custom-file)
+    #+end_src
+*** Browser Enviroment
+    #+begin_src emacs-lisp
+    (setenv "BROWSER" "firefox")
+    #+end_src
+*** Custom Todo states for org mode
+    #+begin_src emacs-lisp
+    (setq org-todo-keywords
+    '((sequence "TODO(t)" "NEXT(n)" "IN_PROGRESS(i!)" "WAITING(w@)" "BLOCKED(b@)" "|" "DONE(d!)" "CANCELED(c!)" )))
+      #+end_src
+*** Insert filename
+    #+begin_src emacs-lisp
+    (defun my-insert-file-name (filename &optional args)
+    "Insert name of file FILENAME into buffer after point.
+    
+    Prefixed with \\[universal-argument], expand the file name to
+    its fully canocalized path.  See `expand-file-name'.
+  
+    Prefixed with \\[negative-argument], use relative path to file
+    name from current directory, `default-directory'.  See
+    `file-relative-name'.
+  
+    The default with no prefix is to insert the file name exactly as
+    it appears in the minibuffer prompt."
+    ;; Based on insert-file in Emacs -- ashawley 20080926
+    (interactive "*fInsert file name: \nP")
+    (cond ((eq '- args)
+         (insert (file-relative-name filename)))
+        ((not (null args))
+         (insert (expand-file-name filename)))
+        (t
+         (insert filename))))
+
+         (global-set-key "\C-c\C-i" 'my-insert-file-name)
+
+#+end_src
+
+** Emacs use-package
+*** Try package
+    #+begin_src emacs-lisp
+    (use-package try
+    :ensure t)
+    #+end_src
+*** Evil-mode package
+    #+begin_src emacs-lisp
+    (use-package evil 
+    :ensure t)
+    (evil-mode 1)
+    #+end_src
+*** Org-mode package
+    #+begin_src emacs-lisp
+    (use-package org
+    :ensure org-plus-contrib)
+    (setq org-hide-emphasis-markers t)
+    
+    #+end_src
+**** Org Mode Activation bindings
+     #+begin_src emacs-lisp
+     (bind-key "C-c l" 'org-store-link)
+     (bind-key "C-c c" 'org-capture)
+     (bind-key "C-c a" 'org-agenda)
+     #+end_src
+
+*** Ivy packges
+    #+begin_src emacs-lisp
+    (use-package counsel
+    :ensure t) 
+
+    (use-package ivy 
+    :ensure t)
+
+    (counsel-mode 1)
+    (ivy-mode 1)
+
+    (setq ivy-use-virtual-buffers t)
+    (setq ivy-count-format "(%d/%d) ")
+    (setq enable-recursive-minibuffers t)
+    (setq ivy-display-style 'fancy)
+
+    (global-set-key "\C-s" 'swiper)
+    (global-set-key (kbd "C-c C-r") 'counsel-recentf)
+    (global-set-key (kbd "<f6>") 'ivy-resume)
+    (global-set-key (kbd "M-x") 'counsel-M-x)
+    (global-set-key (kbd "C-x C-f") 'counsel-find-file)
+    (global-set-key (kbd "<f1> f") 'counsel-describe-function)
+    (global-set-key (kbd "<f1> v") 'counsel-describe-variable)
+    (global-set-key (kbd "<f1> o") 'counsel-describe-symbol)
+    (global-set-key (kbd "<f1> l") 'counsel-find-library)
+    (global-set-key (kbd "<f2> i") 'counsel-info-lookup-symbol)
+    (global-set-key (kbd "<f2> u") 'counsel-unicode-char)
+    (global-set-key (kbd "C-c g") 'counsel-git)
+    (global-set-key (kbd "C-c j") 'counsel-git-grep)
+    (global-set-key (kbd "C-c k") 'counsel-ag)
+    (global-set-key (kbd "C-x l") 'counsel-locate)
+    (global-set-key (kbd "C-S-o") 'counsel-rhythmbox)
+    (define-key minibuffer-local-map (kbd "C-r") 'counsel-minibuffer-history)
+    (bind-key "C-x C-r" 'counsel-recentf )
+    #+end_src
+
+    #+RESULTS:
+    : counsel-recentf
+
+*** Emoji package
+    #+begin_src emacs-lisp
+    (use-package emoji-fontset 
+    :ensure t)
+    #+end_src
+*** Recentf package
+    #+begin_src  emacs-lisp
+    (use-package recentf
+    :config
+    (recentf-mode t)
+    (setq recentf-max-saved-items 500))
+    #+end_src
+*** Ido package
+    #+begin_src emacs-lisp
+    (use-package ido
+    :disabled t
+    :init
+    (setq ido-enable-flex-matching t)
+    (setq ido-everywhere t)
+    (ido-mode t)
+    (use-package ido-vertical-mode
+    :ensure t
+    :defer t
+    :init (ido-vertical-mode 1)
+    (setq ido-vertical-define-keys 'C-n-and-C-p-only)))
+    #+end_src
+
+*** Magit package 
+    #+begin_src emacs-lisp
+    (use-package magit
+    :ensure t
+    :defer t
+    :bind (("C-c g" . magit-status)
+    ("C-c G" . magit-dispatch)
+    ("C-c m l" . magit-log-buffer-file)
+    ("C-c m b" . magit-blame))
+    :config
+    (setq magit-display-buffer-function 'magit-display-buffer-same-window-except-diff-v1)
+    (setq magit-diff-refine-hunk t))
+    #+end_src
+*** Helm Package
+    #+begin_src emacs-lisp
+    ;;(use-package helm
+    ;;:disabled t
+    ;;:ensure t
+    ;;:diminish helm-mode
+    ;;:init
+    ;;(require 'helm-config)
+    ;;:config
+    ;;(setq helm-locate-command "mdfind -interpret -name %s %s"
+    ;;helm-ff-newfile-prompt-p nil
+    ;;helm-M-x-fuzzy-match t)
+    ;;(helm-mode))
+    ;;(use-package helm-projectile
+    ;;:ensure t
+    ;;:after helm-mode
+    ;;:commands helm-projectile
+    ;;:bind ("C-c p h" . helm-projectile))
+    ;;(use-package helm-ag
+    ;;:ensure t
+    ;;:after helm-mode)
+    ;;(use-package helm-swoop
+    ;;:ensure t
+    ;;:after helm-mode
+    ;;:bind ("H-w" . helm-swoop))
+    ;;(bind-key "C-x C-f" 'helm-find-files )
+    ;;(bind-key "C-x C-r" 'helm-recentf )
+    ;;(bind-key "C-x b" 'helm-mini )
+    ;;(bind-key "M-x" 'helm-M-x )
+    ;;(bind-key "C-s" 'helm-swoop )
+    #+end_src
+*** Yasnippet Package
+    #+begin_src emacs-lisp
+      (use-package yasnippet
+        :ensure t
+        :config
+        (use-package yasnippet-snippets
+          :ensure t)
+        (yas-reload-all))
+      (add-hook 'org-mode-hook 'yas-minor-mode)
+      (add-hook 'markdown-mode-hook 'yas-minor-mode)
+      (add-hook 'sh-mode-hook 'yas-minor-mode)
+      (add-hook 'java-mode-hook 'yas-minor-mode)
+      (add-hook 'text-mode-hook 'yas-minor-mode)
+      (add-hook 'lisp-mode-hook 'yas-minor-mode)
+      (add-hook 'emacs-lisp-mode-hook 'yas-minor-mode)
+    #+end_src
+
+*** Flycheck Package
+    Syntax highlighting
+    #+begin_src emacs-lisp
+        (use-package flycheck
+        :ensure t
+        :config (setq flycheck-html-tidy-executable "tidy5"))
+
+        (setenv "DICTIONARY" "en_US")
+        (setq ispell-dictionary "english")
+        (setq ispell-program-name (executable-find "hunspell"))
+
+        (add-hook 'org-mode-hook 'flyspell-mode)
+        (add-hook 'text-mode-hook 'flyspell-mode)
+        (add-hook 'markdown-mode-hook 'flyspell-mode)
+
+    #+end_src
+*** Company Package
+    Auto completion for Emacs is this work 
+    #+begin_src emacs-lisp
+        (use-package company
+          :ensure t
+          :init
+          (add-hook 'after-init-hook 'global-company-mode))
+    #+end_src
+    
+*** Which key package
+    #+begin_src emacs-lisp
+      (use-package which-key
+      :ensure t)
+      (which-key-mode 1)
+    #+end_src
+*** Dictionary
+    #+begin_src emacs-lisp 
+      (use-package dictionary
+        :ensure t)
+      (use-package synosaurus
+        :ensure t)
+    #+end_src
+*** Org-superstar bullets package
+    #+begin_src emacs-lisp
+    (use-package org-superstar
+    :ensure t)
+    (setq org-hide-leading-stars nil)
+    (setq org-superstar-leading-bullet ?\s)
+    (require 'org-superstar)
+    (add-hook 'org-mode-hook (lambda () (org-superstar-mode 1)))
+    #+end_src
+
+** Theme switch, enable, and disable Functions
+  Switch and Disables any currently active themes and loads THEME.
+  #+begin_src emacs-lisp
+  (defun switch-theme (theme)
+  ;; This interactive call is taken from `load-theme'
+  (interactive
+  (list
+  (intern (completing-read "Load custom theme: "
+  (mapc 'symbol-name
+  (custom-available-themes))))))
+  (let ((enabled-themes custom-enabled-themes))
+  (mapc #'disable-theme custom-enabled-themes)
+  (load-theme theme t)))
+  
+  (defun disable-active-themes ()
+  "Disables any currently active themes listed in `custom-enabled-themes'."
+  (interactive)
+  (mapc #'disable-theme custom-enabled-themes))
+
+  (bind-key "s-<f12>" 'switch-theme)
+  (bind-key "s-<f11>" 'disable-active-themes)
+  #+end_src 
+** Themes
+*** Monokai
+   #+begin_src emacs-lisp
+   (use-package monokai-theme
+   :if (window-system)
+   :ensure t
+   :init
+   (setq monokai-use-variable-pitch nil))
+   #+end_src
+*** Gruvbox
+    #+begin_src emacs-lisp
+    (use-package gruvbox-theme
+    :ensure t)
+    #+end_src
+*** Zenburn
+    #+begin_src emacs-lisp
+    (use-package zenburn-theme
+    :ensure t)
+    #+end_src
+    
+*** Active Theme
+   #+begin_src emacs-lisp
+   (switch-theme 'monokai)
+   #+end_src
+** Fonts
+   #+begin_src emacs-lisp
+   (add-to-list 'default-frame-alist
+             (cond
+              ((string-equal system-type "darwin")    '(font . "Source Code Pro-12"))
+              ((string-equal system-type "gnu/linux") '(font . "Source Code Pro-12"))))
+   #+end_src
+** Emojis
+   #+begin_src emacs-lisp
+   (let ((font (if (= emacs-major-version 25)
+                "Symbola"
+              (cond ((string-equal system-type "darwin")    "Apple Color Emoji")
+                    ((string-equal system-type "gnu/linux") "Symbola")))))
+  (set-fontset-font t 'unicode font nil 'prepend))
+  #+end_src
+** Sensible Defaults
+*** Useful functions
+    #+begin_src emacs-lisp
+   (put 'downcase-region 'disabled nil)
+   (put 'upcase-region 'disabled nil)
+   (put 'narrow-to-region 'disabled nil)
+   (put 'dired-find-alternate-file 'disabled nil)
+   #+end_src
+
+*** Use y and n 
+    #+begin_src emacs-lisp
+    (defalias 'yes-or-no-p 'y-or-n-p)
+   #+end_src
+
+*** Backup Directories 
+    All Backup Directoreis in same folder
+    #+begin_src emacs-lisp
+    (setq backup-directory-alist '(("." . "~/.saves/backup")))
+    (setq auto-save-file-name-transforms '((".*" "~/.saves/auto-save-list/" t)))
+   #+end_src
+*** UTF-8
+    #+begin_src emacs-lisp
+    (setq locale-coding-system 'utf-8) ; pretty
+    (set-terminal-coding-system 'utf-8) ; pretty
+    (set-keyboard-coding-system 'utf-8) ; pretty
+    (set-selection-coding-system 'utf-8) ; please
+    (prefer-coding-system 'utf-8) ; with sugar on top
+   #+end_src
+*** Blinking Cursor
+    Disable Blinking Cursor
+    #+begin_src emacs-lisp
+    (blink-cursor-mode -1)
+   #+end_src
+*** Tabs and empty lines 
+    Disable evil tabs 
+    #+begin_src emacs-lisp
+    (setq-default indent-tabs-mode nil)
+    (setq-default indicate-empty-lines t)
+    #+end_src
+*** Setup Buffers
+    Open buffer in split window at bottom.
+    ibuffer is much advance buffer list
+    #+begin_src emacs-lisp
+    (defalias 'list-buffers 'ibuffer-other-window)
+    #+end_src
+*** Misc settings
+    #+begin_src emacs-lisp
+    (setq sentence-end-double-space nil)
+    (delete-selection-mode t)
+    (show-paren-mode t)
+    (column-number-mode t)
+    (global-visual-line-mode)
+    (setq display-line-numbers 'relative)
+    (global-display-line-numbers-mode 1 )
+    (diminish 'visual-line-mode)
+    (setq uniquify-buffer-name-style 'forward)
+    (setq shell-command-switch "-ic")
+    (setq visible-bell t)
+    (global-hl-line-mode 1)
+    
+    #+end_src
+*** Dired mode hook 
+    #+begin_src emacs-lisp
+    (add-hook 'dired-mode-hook 'auto-revert-mode)
+    ;; Also auto refresh dired, but be quiet about it
+    (setq global-auto-revert-non-file-buffers t)
+    (setq auto-revert-verbose nil)
+    #+end_src
+*** Winner mode
+    #+begin_src emacs-lisp
+    (winner-mode 1)
+    #+end_src
+  
+** Custom keybindings
+   #+begin_src emacs-lisp
+   ;;(bind-key "M-n" 'company-complete-common)
+   #+end_src
+** References
+   [[https://github.com/danielmai/.emacs.d/blob/e0333a14a087fbdc1a0122211ad08916a4127724/config.org][Emacs Configuration References]] 
+
+
+  
+   

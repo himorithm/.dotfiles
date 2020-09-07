@@ -66,6 +66,9 @@ export LANG=en_US.UTF-8
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 #
 #
+#Set GPG TTY 
+export GPG_TTY=$(tty)
+
 
 
 export EDITOR=/usr/bin/nvim
@@ -79,7 +82,7 @@ alias halt="sudo systemctl halt"
 alias suspendh="systemctl suspend-then-hibernate"
 alias suspend="systemctl suspend"
 alias hibernate="systemctl hibernate"
-alias notes="cd ~/work/Documents/notes/latex/technotes/"
+alias notes="cd ~/work/notes/"
 alias scripts="cd ~/work/scripts"
 alias chgwall="feh -rz --bg-fill $HOME/media/Pictures/WallPapers/*"
 alias technotes="cd ~/work/Documents/notes/latex/technotes"
