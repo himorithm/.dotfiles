@@ -1,6 +1,6 @@
 #+title: Emacs Configuration
 #+auther: Himanshu Ahire
-#+startup show-paren-mode 
+#+STARTUP: content
 
 * Emacs Settings
 ** Personal details
@@ -12,8 +12,14 @@
 ** Customize Settings 
 *** Custom setting file
     #+begin_src emacs-lisp
-    (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
-    (load custom-file)
+      (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
+      (load custom-file)
+      (defun config-reload ()
+        "Reloads ~/.emacs.d/setting.org at runtime"
+        (interactive)
+        (org-babel-load-file (expand-file-name "~/.emacs.d/setting.org")))
+      (global-set-key (kbd "C-c r") 'config-reload)
+      (show-paren-mode 1)
     #+end_src
 *** Browser Enviroment
     #+begin_src emacs-lisp
@@ -68,16 +74,18 @@
     (use-package org
     :ensure org-plus-contrib)
     (setq org-hide-emphasis-markers t)
-    
+    (add-to-list 'org-structure-template-alist
+	       '("el" "#+BEGIN_SRC emacs-lisp\n?\n#+END_SRC"))
     #+end_src
 **** Org Mode Activation bindings
      #+begin_src emacs-lisp
      (bind-key "C-c l" 'org-store-link)
      (bind-key "C-c c" 'org-capture)
      (bind-key "C-c a" 'org-agenda)
+     (bind-key "C-c C-;" 'org-edit-src-code)
      #+end_src
 
-*** Ivy packges
+*** Ivy packages
     #+begin_src emacs-lisp
     (use-package counsel
     :ensure t) 
@@ -186,7 +194,7 @@
     ;;(bind-key "C-x b" 'helm-mini )
     ;;(bind-key "M-x" 'helm-M-x )
     ;;(bind-key "C-s" 'helm-swoop )
-    #+end_src
+    #+end_sr
 *** Yasnippet Package
     #+begin_src emacs-lisp
       (use-package yasnippet
@@ -242,6 +250,77 @@
       (use-package synosaurus
         :ensure t)
     #+end_src
+*** Dashboard
+    #+begin_src emacs-lisp 
+      (use-package dashboard
+      :ensure t
+      :config
+      (dashboard-setup-startup-hook))
+      (setq dashboard-banner-logo-title "Welcome to Emacs")
+      (setq dashboard-items '((recents  . 10)
+                              (agenda . 10)
+                              (bookmarks . 5)
+                              (projects . 5)))
+
+      (setq dashboard-set-navigator t)
+      (setq dashboard-set-init-info t)
+      (setq dashboard-init-info "Himanshu")
+      (setq show-week-agenda-p t)
+      (setq initial-buffer-choice (lambda () (get-buffer "*dashboard*")))
+      (setq dashboard-set-heading-icons t)
+      (setq dashboard-set-file-icons t)
+      (setq dashboard-startup-banner 'logo)
+    #+end_src
+*** Icons Package
+   #+begin_src emacs-lisp 
+   (use-package all-the-icons
+   :ensure t)
+   #+end_src 
+*** Projects 
+    #+begin_src emacs-lisp 
+      (use-package projectile
+        :ensure t)
+      (projectile-mode +1)
+      (define-key projectile-mode-map (kbd "s-p") 'projectile-command-map)
+      (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)  
+    #+end_src
+*** Music is Life
+    #+begin_src emacs-lisp 
+      (use-package mpdel
+        :ensure t)
+        (setq mpdel-prefix-key (kbd "C-. z"))
+       (use-package ivy-mpdel 
+       :ensure t)
+    #+end_src
+*** Space line or Mode line package
+    #+begin_src emacs-lisp 
+      (use-package spaceline
+        :ensure t
+        :config
+        (require 'spaceline-config)
+          (setq spaceline-buffer-encoding-abbrev-p nil)
+          (setq spaceline-line-column-p nil)
+          (setq spaceline-line-p nil)
+          (setq powerline-default-separator (quote arrow))
+          (spaceline-spacemacs-theme))
+
+      (setq powerline-default-separator nil)
+
+      (setq line-number-mode t)
+      (setq column-number-mode t)
+
+      (setq display-time-24hr-format t)
+      (setq display-time-format "%H:%M - %d %B %Y")
+
+      (display-time-mode 1)
+    #+end_src
+*** Terminal Window 
+   #+begin_src emacs-lisp :tangle yes
+     (defvar my-term-shell "/bin/bash")
+     (defadvice ansi-term (before force-bash)
+       (interactive (list my-term-shell)))
+     (ad-activate 'ansi-term)
+   #+end_src  
 *** Org-superstar bullets package
     #+begin_src emacs-lisp
     (use-package org-superstar
@@ -387,9 +466,11 @@
     #+end_src
   
 ** Custom keybindings
-   #+begin_src emacs-lisp
-   ;;(bind-key "M-n" 'company-complete-common)
-   #+end_src
+*** Map Meta Key to x m    
+    #+begin_src emacs-lisp 
+    (global-set-key "\C-x\C-m" 'execute-extended-command)
+    #+end_src
+
 ** References
    [[https://github.com/danielmai/.emacs.d/blob/e0333a14a087fbdc1a0122211ad08916a4127724/config.org][Emacs Configuration References]] 
 

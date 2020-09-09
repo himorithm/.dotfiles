@@ -245,6 +245,7 @@ export FZF_DEFAULT_COMMAND='find * -type d \(  -path "*/\.*" -o -name "media" -o
 #preexec () { print -rn -- $terminfo[el]; }
 
 
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
