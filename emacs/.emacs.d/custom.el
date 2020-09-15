@@ -19,12 +19,12 @@
      ("i" "Important TODO Tasks" tags-todo "important"
       ((org-agenda-overriding-header "Important Things to do")))))
  '(org-agenda-files
-   '("~/Dropbox/org/work-todo.org" "~/Dropbox/org/repetative.org" "~/Dropbox/org/Celerbrations.org" "~/Dropbox/org/todo.org" "~/work/notes/orgmode-notes.org"))
+   '("~/Dropbox/org/work-todo.org" "~/Dropbox/org/repetative.org" "~/Dropbox/org/Celerbrations.org" "~/Dropbox/org/todo.org" ))
  '(org-log-done t)
  '(org-log-into-drawer t)
  '(org-log-reschedule 'note)
  '(package-selected-packages
-   '(spaceline ivy-mpdel mpdel synosaurus dictionary ac-ispell zenburn-theme gruvbox-theme evil use-package))
+   '(ob-ammonite scala-mode spaceline ivy-mpdel mpdel synosaurus dictionary ac-ispell zenburn-theme gruvbox-theme evil use-package))
  '(pdf-view-midnight-colors '("#fdf4c1" . "#32302f"))
  '(scroll-bar-mode nil)
  '(show-paren-mode t)

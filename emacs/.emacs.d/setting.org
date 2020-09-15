@@ -63,27 +63,201 @@
     (use-package try
     :ensure t)
     #+end_src
-*** Evil-mode package
+*** Emoji package
     #+begin_src emacs-lisp
-    (use-package evil 
+    (use-package emoji-fontset 
     :ensure t)
-    (evil-mode 1)
     #+end_src
-*** Org-mode package
+*** Dashboard
+    #+begin_src emacs-lisp 
+      (use-package dashboard
+      :ensure t
+      :config
+      (dashboard-setup-startup-hook))
+      (setq dashboard-banner-logo-title "Welcome to Emacs")
+      (setq dashboard-items '((recents  . 10)
+                              (agenda . 10)
+                              (bookmarks . 5)
+                              (projects . 5)))
+
+      (setq dashboard-set-navigator t)
+      (setq dashboard-set-init-info t)
+      (setq dashboard-init-info "Himanshu")
+      (setq show-week-agenda-p t)
+      (setq initial-buffer-choice (lambda () (get-buffer "*dashboard*")))
+      (setq dashboard-set-heading-icons t)
+      (setq dashboard-set-file-icons t)
+      (setq dashboard-startup-banner 'logo)
+    #+end_src
+*** Which key package
     #+begin_src emacs-lisp
-    (use-package org
-    :ensure org-plus-contrib)
-    (setq org-hide-emphasis-markers t)
-    (add-to-list 'org-structure-template-alist
-	       '("el" "#+BEGIN_SRC emacs-lisp\n?\n#+END_SRC"))
+      (use-package which-key
+      :ensure t)
+      (which-key-mode 1)
     #+end_src
-**** Org Mode Activation bindings
-     #+begin_src emacs-lisp
-     (bind-key "C-c l" 'org-store-link)
-     (bind-key "C-c c" 'org-capture)
-     (bind-key "C-c a" 'org-agenda)
-     (bind-key "C-c C-;" 'org-edit-src-code)
-     #+end_src
+*** Dictionary
+    #+begin_src emacs-lisp 
+      (use-package dictionary
+        :ensure t)
+      (use-package synosaurus
+        :ensure t)
+    #+end_src
+*** Projects 
+    #+begin_src emacs-lisp 
+      (use-package projectile
+        :ensure t)
+      (projectile-mode +1)
+      (define-key projectile-mode-map (kbd "s-p") 'projectile-command-map)
+      (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)  
+    #+end_src
+*** Icons Package
+   #+begin_src emacs-lisp 
+   (use-package all-the-icons
+   :ensure t)
+   #+end_src 
+*** Helm Package
+    #+begin_src emacs-lisp
+    ;;(use-package helm
+    ;;:disabled t
+    ;;:ensure t
+    ;;:diminish helm-mode
+    ;;:init
+    ;;(require 'helm-config)
+    ;;:config
+    ;;(setq helm-locate-command "mdfind -interpret -name %s %s"
+    ;;helm-ff-newfile-prompt-p nil
+    ;;helm-M-x-fuzzy-match t)
+    ;;(helm-mode))
+    ;;(use-package helm-projectile
+    ;;:ensure t
+    ;;:after helm-mode
+    ;;:commands helm-projectile
+    ;;:bind ("C-c p h" . helm-projectile))
+    ;;(use-package helm-ag
+    ;;:ensure t
+    ;;:after helm-mode)
+    ;;(use-package helm-swoop
+    ;;:ensure t
+    ;;:after helm-mode
+    ;;:bind ("H-w" . helm-swoop))
+    ;;(bind-key "C-x C-f" 'helm-find-files )
+    ;;(bind-key "C-x C-r" 'helm-recentf )
+    ;;(bind-key "C-x b" 'helm-mini )
+    ;;(bind-key "M-x" 'helm-M-x )
+    ;;(bind-key "C-s" 'helm-swoop )
+    #+end_sr
+*** Music is Life
+    #+begin_src emacs-lisp 
+      (use-package mpdel
+        :ensure t)
+        (setq mpdel-prefix-key (kbd "C-. z"))
+       (use-package ivy-mpdel 
+       :ensure t)
+    #+end_src
+*** Space line or Mode line package
+    #+begin_src emacs-lisp 
+    (use-package spaceline
+        :ensure t
+        :config
+        (require 'spaceline-config)
+          (setq spaceline-buffer-encoding-abbrev-p nil)
+          (setq spaceline-line-column-p nil)
+          (setq spaceline-line-p nil)
+          (setq powerline-default-separator (quote arrow))
+          (spaceline-spacemacs-theme))
+
+      (setq powerline-default-separator nil)
+
+      (setq line-number-mode t)
+      (setq column-number-mode t)
+
+      (setq display-time-24hr-format t)
+      (setq display-time-format "%H:%M - %d %B %Y")
+
+      (display-time-mode 1)
+    #+end_src
+*** Scala
+    #+begin_src emacs-lisp 
+      (use-package scala-mode
+        :ensure t
+        :interpreter
+        ("scala" . scala-mode))
+    #+end_src
+
+*** Python
+   #+begin_src emacs-lisp 
+        (add-hook 'python-mode-hook 'yas-minor-mode)
+     (add-hook 'python-mode-hook 'flycheck-mode)
+
+     (with-eval-after-load 'company
+         (add-hook 'python-mode-hook 'company-mode))
+
+     (use-package company-jedi
+       :ensure t
+       :config
+         (require 'company)
+         (add-to-list 'company-backends 'company-jedi))
+
+     (defun python-mode-company-init ()
+       (setq-local company-backends '((company-jedi
+                                       company-etags
+                                       company-dabbrev-code))))
+
+     (use-package company-jedi
+       :ensure t
+       :config
+         (require 'company)
+         (add-hook 'python-mode-hook 'python-mode-company-init))
+   #+end_src 
+  
+*** Load Extra Language Babel
+   #+begin_src emacs-lisp 
+     (org-babel-do-load-languages
+      'org-babel-load-languages
+      '(
+      (python . t)
+      ))
+   #+end_src 
+    
+*** Emacs Lisp
+    #+begin_src emacs-lisp 
+      (add-hook 'emacs-lisp-mode-hook 'eldoc-mode)
+      (add-hook 'emacs-lisp-mode-hook 'yas-minor-mode)
+      (add-hook 'emacs-lisp-mode-hook 'company-mode)
+
+      (use-package slime
+        :ensure t
+        :config
+        (setq inferior-lisp-program "/usr/bin/sbcl")
+        (setq slime-contribs '(slime-fancy)))
+
+      (use-package slime-company
+        :ensure t
+        :init
+          (require 'company)
+          (slime-setup '(slime-fancy slime-company)))
+    #+end_src
+*** Recentf package
+    #+begin_src  emacs-lisp
+    (use-package recentf
+    :config
+    (recentf-mode t)
+    (setq recentf-max-saved-items 500))
+    #+end_src
+*** Ido package
+    #+begin_src emacs-lisp
+    (use-package ido
+    :disabled t
+    :init
+    (setq ido-enable-flex-matching t)
+    (setq ido-everywhere t)
+    (ido-mode t)
+    (use-package ido-vertical-mode
+    :ensure t
+    :defer t
+    :init (ido-vertical-mode 1)
+    (setq ido-vertical-define-keys 'C-n-and-C-p-only)))
+    #+end_src
 
 *** Ivy packages
     #+begin_src emacs-lisp
@@ -124,33 +298,6 @@
     #+RESULTS:
     : counsel-recentf
 
-*** Emoji package
-    #+begin_src emacs-lisp
-    (use-package emoji-fontset 
-    :ensure t)
-    #+end_src
-*** Recentf package
-    #+begin_src  emacs-lisp
-    (use-package recentf
-    :config
-    (recentf-mode t)
-    (setq recentf-max-saved-items 500))
-    #+end_src
-*** Ido package
-    #+begin_src emacs-lisp
-    (use-package ido
-    :disabled t
-    :init
-    (setq ido-enable-flex-matching t)
-    (setq ido-everywhere t)
-    (ido-mode t)
-    (use-package ido-vertical-mode
-    :ensure t
-    :defer t
-    :init (ido-vertical-mode 1)
-    (setq ido-vertical-define-keys 'C-n-and-C-p-only)))
-    #+end_src
-
 *** Magit package 
     #+begin_src emacs-lisp
     (use-package magit
@@ -164,54 +311,6 @@
     (setq magit-display-buffer-function 'magit-display-buffer-same-window-except-diff-v1)
     (setq magit-diff-refine-hunk t))
     #+end_src
-*** Helm Package
-    #+begin_src emacs-lisp
-    ;;(use-package helm
-    ;;:disabled t
-    ;;:ensure t
-    ;;:diminish helm-mode
-    ;;:init
-    ;;(require 'helm-config)
-    ;;:config
-    ;;(setq helm-locate-command "mdfind -interpret -name %s %s"
-    ;;helm-ff-newfile-prompt-p nil
-    ;;helm-M-x-fuzzy-match t)
-    ;;(helm-mode))
-    ;;(use-package helm-projectile
-    ;;:ensure t
-    ;;:after helm-mode
-    ;;:commands helm-projectile
-    ;;:bind ("C-c p h" . helm-projectile))
-    ;;(use-package helm-ag
-    ;;:ensure t
-    ;;:after helm-mode)
-    ;;(use-package helm-swoop
-    ;;:ensure t
-    ;;:after helm-mode
-    ;;:bind ("H-w" . helm-swoop))
-    ;;(bind-key "C-x C-f" 'helm-find-files )
-    ;;(bind-key "C-x C-r" 'helm-recentf )
-    ;;(bind-key "C-x b" 'helm-mini )
-    ;;(bind-key "M-x" 'helm-M-x )
-    ;;(bind-key "C-s" 'helm-swoop )
-    #+end_sr
-*** Yasnippet Package
-    #+begin_src emacs-lisp
-      (use-package yasnippet
-        :ensure t
-        :config
-        (use-package yasnippet-snippets
-          :ensure t)
-        (yas-reload-all))
-      (add-hook 'org-mode-hook 'yas-minor-mode)
-      (add-hook 'markdown-mode-hook 'yas-minor-mode)
-      (add-hook 'sh-mode-hook 'yas-minor-mode)
-      (add-hook 'java-mode-hook 'yas-minor-mode)
-      (add-hook 'text-mode-hook 'yas-minor-mode)
-      (add-hook 'lisp-mode-hook 'yas-minor-mode)
-      (add-hook 'emacs-lisp-mode-hook 'yas-minor-mode)
-    #+end_src
-
 *** Flycheck Package
     Syntax highlighting
     #+begin_src emacs-lisp
@@ -237,83 +336,44 @@
           (add-hook 'after-init-hook 'global-company-mode))
     #+end_src
     
-*** Which key package
+*** Evil-mode package
     #+begin_src emacs-lisp
-      (use-package which-key
-      :ensure t)
-      (which-key-mode 1)
+    (use-package evil 
+    :ensure t)
+    (evil-mode 1)
     #+end_src
-*** Dictionary
-    #+begin_src emacs-lisp 
-      (use-package dictionary
-        :ensure t)
-      (use-package synosaurus
-        :ensure t)
+*** Org-mode package
+    #+begin_src emacs-lisp
+    (use-package org
+    :ensure org-plus-contrib)
+    (setq org-hide-emphasis-markers t)
+    (add-to-list 'org-structure-template-alist
+	       '("el" "#+BEGIN_SRC emacs-lisp\n?\n#+END_SRC"))
     #+end_src
-*** Dashboard
-    #+begin_src emacs-lisp 
-      (use-package dashboard
-      :ensure t
-      :config
-      (dashboard-setup-startup-hook))
-      (setq dashboard-banner-logo-title "Welcome to Emacs")
-      (setq dashboard-items '((recents  . 10)
-                              (agenda . 10)
-                              (bookmarks . 5)
-                              (projects . 5)))
-
-      (setq dashboard-set-navigator t)
-      (setq dashboard-set-init-info t)
-      (setq dashboard-init-info "Himanshu")
-      (setq show-week-agenda-p t)
-      (setq initial-buffer-choice (lambda () (get-buffer "*dashboard*")))
-      (setq dashboard-set-heading-icons t)
-      (setq dashboard-set-file-icons t)
-      (setq dashboard-startup-banner 'logo)
-    #+end_src
-*** Icons Package
-   #+begin_src emacs-lisp 
-   (use-package all-the-icons
-   :ensure t)
-   #+end_src 
-*** Projects 
-    #+begin_src emacs-lisp 
-      (use-package projectile
-        :ensure t)
-      (projectile-mode +1)
-      (define-key projectile-mode-map (kbd "s-p") 'projectile-command-map)
-      (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)  
-    #+end_src
-*** Music is Life
-    #+begin_src emacs-lisp 
-      (use-package mpdel
-        :ensure t)
-        (setq mpdel-prefix-key (kbd "C-. z"))
-       (use-package ivy-mpdel 
-       :ensure t)
-    #+end_src
-*** Space line or Mode line package
-    #+begin_src emacs-lisp 
-      (use-package spaceline
+**** Org Mode Activation bindings
+     #+begin_src emacs-lisp
+     (bind-key "C-c l" 'org-store-link)
+     (bind-key "C-c c" 'org-capture)
+     (bind-key "C-c a" 'org-agenda)
+     (bind-key "C-c C-;" 'org-edit-src-code)
+     #+end_src
+*** Yasnippet Package
+    #+begin_src emacs-lisp
+      (use-package yasnippet
         :ensure t
         :config
-        (require 'spaceline-config)
-          (setq spaceline-buffer-encoding-abbrev-p nil)
-          (setq spaceline-line-column-p nil)
-          (setq spaceline-line-p nil)
-          (setq powerline-default-separator (quote arrow))
-          (spaceline-spacemacs-theme))
-
-      (setq powerline-default-separator nil)
-
-      (setq line-number-mode t)
-      (setq column-number-mode t)
-
-      (setq display-time-24hr-format t)
-      (setq display-time-format "%H:%M - %d %B %Y")
-
-      (display-time-mode 1)
+        (use-package yasnippet-snippets
+          :ensure t)
+        (yas-reload-all))
+      (add-hook 'org-mode-hook 'yas-minor-mode)
+      (add-hook 'markdown-mode-hook 'yas-minor-mode)
+      (add-hook 'sh-mode-hook 'yas-minor-mode)
+      (add-hook 'java-mode-hook 'yas-minor-mode)
+      (add-hook 'text-mode-hook 'yas-minor-mode)
+      (add-hook 'lisp-mode-hook 'yas-minor-mode)
+      (add-hook 'emacs-lisp-mode-hook 'yas-minor-mode)
     #+end_src
+
 *** Terminal Window 
    #+begin_src emacs-lisp :tangle yes
      (defvar my-term-shell "/bin/bash")
