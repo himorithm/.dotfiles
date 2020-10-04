@@ -38,6 +38,7 @@ else
     emacs --daemon & 
     pkill mpd
     mpd &
+    ~/work/scripts/dropbox.sh
     exec dwm
 fi
 

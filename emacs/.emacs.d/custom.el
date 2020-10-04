@@ -19,7 +19,7 @@
      ("i" "Important TODO Tasks" tags-todo "important"
       ((org-agenda-overriding-header "Important Things to do")))))
  '(org-agenda-files
-   '("~/Dropbox/org/work-todo.org" "~/Dropbox/org/repetative.org" "~/Dropbox/org/Celerbrations.org" "~/Dropbox/org/todo.org" ))
+   '("~/Dropbox/org/work-todo.org" "~/Dropbox/org/repetative.org" "~/Dropbox/org/todo.org"))
  '(org-log-done t)
  '(org-log-into-drawer t)
  '(org-log-reschedule 'note)
