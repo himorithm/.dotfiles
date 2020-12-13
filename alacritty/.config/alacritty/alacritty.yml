@@ -536,17 +536,17 @@ url:
 #    A `~` operator can be used before a mode to apply the binding whenever
 #    the mode is *not* active, e.g. `~Alt`.
 #
-key_bindings:
+#key_bindings:
   # (Windows, Linux, and BSD only)
-  - { key: V,        mods: Control|Shift, action: Paste            }
-  - { key: C,        mods: Control|Shift, action: Copy             }
-  - { key: Insert,   mods: Shift,         action: PasteSelection   }
-  - { key: Key0,     mods: Control,       action: ResetFontSize    }
-  - { key: Equals,   mods: Control,       action: IncreaseFontSize }
-  - { key: Add,      mods: Control,       action: IncreaseFontSize }
-  - { key: Subtract, mods: Control,       action: DecreaseFontSize }
-  - { key: Minus,    mods: Control,       action: DecreaseFontSize }
-  - { key: K,        mods: Control,       action: ScrollLineUp     }
-  - { key: J,        mods: Control,       action: ScrollLineDown   }
-  - { key: K,        mods: Control|Shift, action: ScrollPageUp     }
-  - { key: J,        mods: Control|Shift, action: ScrollPageDown   }
+  #- { key: V,        mods: Control|Shift, action: Paste            }
+    #- { key: C,        mods: Control|Shift, action: Copy             }
+    # - { key: Insert,   mods: Shift,         action: PasteSelection   }
+    #- { key: Key0,     mods: Control,       action: ResetFontSize    }
+    #- { key: Equals,   mods: Control,       action: IncreaseFontSize }
+    # - { key: Add,      mods: Control,       action: IncreaseFontSize }
+    # - { key: Subtract, mods: Control,       action: DecreaseFontSize }
+    # - { key: Minus,    mods: Control,       action: DecreaseFontSize }
+    # - { key: K,        mods: Control,       action: ScrollLineUp     }
+    # - { key: J,        mods: Control,       action: ScrollLineDown   }
+    # - { key: K,        mods: Control|Shift, action: ScrollPageUp     }
+    #  - { key: J,        mods: Control|Shift, action: ScrollPageDown   }

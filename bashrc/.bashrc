@@ -1,4 +1,4 @@
-source /etc/profile
+#source /etc/profile
 
 export EDITOR=/usr/bin/nvim
 export PAGER=/usr/bin/less
@@ -56,11 +56,11 @@ set -o vi
 
 #source /home/himanshu/.config/broot/launcher/bash/br
 
-PATH="/home/himanshu/perl5/bin${PATH:+:${PATH}}"; export PATH;
-PERL5LIB="/home/himanshu/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
-PERL_LOCAL_LIB_ROOT="/home/himanshu/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
-PERL_MB_OPT="--install_base \"/home/himanshu/perl5\""; export PERL_MB_OPT;
-PERL_MM_OPT="INSTALL_BASE=/home/himanshu/perl5"; export PERL_MM_OPT;
+#PATH="/home/himanshu/perl5/bin${PATH:+:${PATH}}"; export PATH;
+#PERL5LIB="/home/himanshu/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
+#PERL_LOCAL_LIB_ROOT="/home/himanshu/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
+#PERL_MB_OPT="--install_base \"/home/himanshu/perl5\""; export PERL_MB_OPT;
+#PERL_MM_OPT="INSTALL_BASE=/home/himanshu/perl5"; export PERL_MM_OPT;
 
 ~/work/scripts/ufetch.sh
 
@@ -69,21 +69,21 @@ PERL_MM_OPT="INSTALL_BASE=/home/himanshu/perl5"; export PERL_MM_OPT;
 #	exec fis#h
 #fi
 
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+#[ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/himanshu/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/home/himanshu/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/himanshu/anaconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/home/himanshu/anaconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
+#__conda_setup="$('/home/himanshu/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+#if [ $? -eq 0 ]; then
+#    eval "$__conda_setup"
+#else
+#    if [ -f "/home/himanshu/anaconda3/etc/profile.d/conda.sh" ]; then
+#        . "/home/himanshu/anaconda3/etc/profile.d/conda.sh"
+#    else
+#        export PATH="/home/himanshu/anaconda3/bin:$PATH"
+#    fi
+#fi
+#unset __conda_setup
 # <<< conda initialize <<<
 
 
@@ -91,6 +91,6 @@ unset __conda_setup
 export SDKMAN_DIR="/home/himanshu/.sdkman"
 [[ -s "/home/himanshu/.sdkman/bin/sdkman-init.sh" ]] && source "/home/himanshu/.sdkman/bin/sdkman-init.sh"
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+#export NVM_DIR="$HOME/.nvm"
+#[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+#[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

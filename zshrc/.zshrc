@@ -255,3 +255,7 @@ export SDKMAN_DIR="/home/himanshu/work/.sdkman"
 export NVM_DIR="$HOME/work/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+
+eval "$(starship init zsh)"
+
