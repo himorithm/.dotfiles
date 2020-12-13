@@ -137,12 +137,13 @@ alias browseimages="feh  -g1920x1080+320+180 --draw-filename --borderless --auto
 #Set vi option enable
 #set -o vi
 
-
-PATH=".:/home/himanshu/perl5/bin${PATH:+:${PATH}}:/home/himanshu/idea-IC-193.6494.35/bin:/home/himanshu/work/scripts/"; export PATH;
-PERL5LIB="/home/himanshu/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
-PERL_LOCAL_LIB_ROOT="/home/himanshu/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
-PERL_MB_OPT="--install_base \"/home/himanshu/perl5\""; export PERL_MB_OPT;
-PERL_MM_OPT="INSTALL_BASE=/home/himanshu/perl5"; export PERL_MM_OPT;
+PATH=".:$PATH:/home/himanshu/work/scripts:/home/himanshu/idea-IC-193.6494.35/bin"
+export PATH 
+#PATH=".:/home/himanshu/perl5/bin${PATH:+:${PATH}}:/home/himanshu/idea-IC-193.6494.35/bin:/home/himanshu/work/scripts/"; export PATH;
+#PERL5LIB="/home/himanshu/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
+#PERL_LOCAL_LIB_ROOT="/home/himanshu/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
+#PERL_MB_OPT="--install_base \"/home/himanshu/perl5\""; export PERL_MB_OPT;
+#PERL_MM_OPT="INSTALL_BASE=/home/himanshu/perl5"; export PERL_MM_OPT;
 
 #Setup Key Bindings
 
@@ -226,6 +227,7 @@ export M2_REPO="/home/himanshu/work/.m2"
 
 export FZF_DEFAULT_COMMAND='find * -type d \(  -path "*/\.*" -o -name "media" -o -name "gamemode" -o -name "elasticsearch" -o -name "native-client" -o -name "idea"  \) -prune -false -o -type f 2>/dev/null'
 
+export STARSHIP_CONFIG=~/.config/starship   
 #Zsh vi status line
 #function zle-line-init zle-keymap-select {
 #    RPS1="${${KEYMAP/vicmd/-- NORMAL --}/(main|viins)/-- INSERT --}"
@@ -252,9 +254,9 @@ export FZF_DEFAULT_COMMAND='find * -type d \(  -path "*/\.*" -o -name "media" -o
 export SDKMAN_DIR="/home/himanshu/work/.sdkman"
 [[ -s "/home/himanshu/work/.sdkman/bin/sdkman-init.sh" ]] && source "/home/himanshu/work/.sdkman/bin/sdkman-init.sh"
 
-export NVM_DIR="$HOME/work/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+#export NVM_DIR="$HOME/work/.nvm"
+#[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+#[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 
 eval "$(starship init zsh)"

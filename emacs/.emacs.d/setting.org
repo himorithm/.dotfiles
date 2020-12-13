@@ -441,15 +441,15 @@
    #+begin_src emacs-lisp
    (add-to-list 'default-frame-alist
              (cond
-              ((string-equal system-type "darwin")    '(font . "Source Code Pro-12"))
-              ((string-equal system-type "gnu/linux") '(font . "Source Code Pro-12"))))
+              ((string-equal system-type "darwin")    '(font . "FiraCode Nerd Font-12"))
+              ((string-equal system-type "gnu/linux") '(font . "FiraCode Nerd Font-12"))))
    #+end_src
 ** Emojis
    #+begin_src emacs-lisp
    (let ((font (if (= emacs-major-version 25)
-                "Symbola"
+                "FiraCode Nerd Font"
               (cond ((string-equal system-type "darwin")    "Apple Color Emoji")
-                    ((string-equal system-type "gnu/linux") "Symbola")))))
+                    ((string-equal system-type "gnu/linux") "FiraCode Nerd Font")))))
   (set-fontset-font t 'unicode font nil 'prepend))
   #+end_src
 ** Sensible Defaults
