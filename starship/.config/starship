@@ -1,0 +1,9 @@
+format = "$all"
+add_newline = false
+
+[aws]
+disabled = true
+
+[battery]
+disabled = true
+
