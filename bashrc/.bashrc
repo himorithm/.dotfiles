@@ -29,6 +29,14 @@ alias code="cd ~/work/code"
 alias iknow="cd ~/work/iknow"
 alias steamlib="cd ~/media/SteamLibrary/"
 alias idea="nohup ~/media/idea-IC-193.6494.35/bin/idea.sh $@ > /dev/null 2>&1 & "
+# Git shortcutts 
+alias ga="git add ."
+alias gc="git commit -m "
+alias gp="git push "
+alias gs="git status "
+alias gl="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+alias gu="git pull"
+alias gf="git fetch"
 
 ## Colorize the grep command output for ease of use (good for log files)##
 alias grep='grep --color=auto'
@@ -68,12 +76,13 @@ alias browseimages="feh  -g1920x1080+320+180 --draw-filename --borderless --auto
 alias youtube-mp3='cd ~/media/Music/; youtube-dl -x --audio-format mp3 --prefer-ffmpeg'
 alias sync-mobile-music='bash ~/work/scripts/upload_music.sh'
 
+#Path
 PATH=".:$PATH:/home/himanshu/work/scripts:/home/himanshu/idea-IC-193.6494.35/bin"
 export PATH 
 
 #Set vi option enable 
 set -o vi
-
+export TERM=xterm-256color
 export XDG_DESKTOP_DIR="$HOME/"
 export XDG_DOWNLOAD_DIR="/home/himanshu/media/Downloads/"
 export XDG_TEMPLATES_DIR="$HOME/"
@@ -91,16 +100,8 @@ export NNN_OPENER=xdg-open
 export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.crossplatformlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel -Dsun.java2d.opengl=true'
 export _JAVA_AWT_WM_NONREPARTENTING=1
 export JAVA_HOME=/usr/lib/jvm/default
-
-export TERM=xterm-256color
-
 export GRADLE_USER_HOME="/home/himanshu/work/.gradle"
 export M2_REPO="/home/himanshu/work/.m2"
-#export FZF_DEFAULT_COMMAND=
-#find * -type d \(  -path "*/\.*" -o -name "media" -o -name "gamemode" -o -name "elasticsearch" -o -name "native-client" -o -name "idea"  \) -prune -false -o -type f 2>/dev/null
-
-#~/work/scripts/ufetch.sh
-
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/home/himanshu/.sdkman"
