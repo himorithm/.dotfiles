@@ -52,8 +52,6 @@ alias bc='bc -l'
 
 #Editor 
 alias vi=nvim
-alias vim=nvim
-alias v=nvim
 alias svi='sudo nvim'
 alias vis='nvim "+set si"'
 alias edit='nvim'
@@ -73,7 +71,7 @@ alias godwm="cd ~/work/suckless/dwm"
 alias downloads="cd /home/himanshu/media/Downloads/"
 alias todo="cd /home/himanshu/work/Documents/todo/"
 alias browseimages="feh  -g1920x1080+320+180 --draw-filename --borderless --auto-reload --auto-rotate --scale-down --preload -S filename -B black  -r "
-alias youtube-mp3='cd ~/media/Music/; youtube-dl -x --audio-format mp3 --prefer-ffmpeg'
+alias youtube-mp3='cd ~/media/Music/; youtube-dl --ignore-errors -x -f bestaudio[ext=mp3]' 
 alias sync-mobile-music='bash ~/work/scripts/upload_music.sh'
 
 #Path
@@ -102,6 +100,13 @@ export _JAVA_AWT_WM_NONREPARTENTING=1
 export JAVA_HOME=/usr/lib/jvm/default
 export GRADLE_USER_HOME="/home/himanshu/work/.gradle"
 export M2_REPO="/home/himanshu/work/.m2"
+<<<<<<< HEAD
+=======
+#export FZF_DEFAULT_COMMAND='find * -type d \(  -path "*/\.*" -o -name "media" -o -name "gamemode" -o -name "elasticsearch" -o -name "native-client" -o -name "idea"  \) -prune -false -o -type f 2>/dev/null'
+
+#~/work/scripts/ufetch.sh
+
+>>>>>>> parent of db44ee7 (Added changes to bashrc and starship)
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/home/himanshu/.sdkman"

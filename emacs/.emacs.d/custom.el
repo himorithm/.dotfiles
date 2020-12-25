@@ -24,7 +24,7 @@
  '(org-log-into-drawer t)
  '(org-log-reschedule 'note)
  '(package-selected-packages
-   '(super-save ob-tmux babel htmlize org-tree-slide ob-ammonite scala-mode spaceline ivy-mpdel mpdel synosaurus dictionary ac-ispell zenburn-theme gruvbox-theme evil use-package))
+ '(super-save ob-tmux babel htmlize org-tree-slide ob-ammonite scala-mode spaceline ivy-mpdel mpdel synosaurus dictionary ac-ispell zenburn-theme gruvbox-theme evil use-package))
  '(pdf-view-midnight-colors '("#fdf4c1" . "#32302f"))
  '(scroll-bar-mode nil)
  '(show-paren-mode t)
