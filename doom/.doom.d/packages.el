@@ -14,6 +14,9 @@
 (package! emoji-fontset)
 (package! format-all)
 (package! ivy-prescient)
+(package! py-isort)
+(package! evil-tutor)
+
 
 
 

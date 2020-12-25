@@ -76,7 +76,7 @@ alias youtube-mp3='cd ~/media/Music/; youtube-dl --ignore-errors -x -f bestaudio
 alias sync-mobile-music='bash ~/work/scripts/upload_music.sh'
 
 #Path
-PATH=".:$PATH:/home/himanshu/work/scripts:/home/himanshu/.emacs.d/bin:/home/himanshu/idea-IC-193.6494.35/bin"
+PATH=".:$PATH:/home/himanshu/work/scripts:/home/himanshu/.emacs.d/bin:/home/himanshu/idea-IC-193.6494.35/bin:/home/himanshu/.local/bin/"
 export PATH 
 
 #Set vi option enable 
