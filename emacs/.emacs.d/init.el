@@ -6,6 +6,7 @@
 
 (setq inhibit-startup-message t)
 (setq initial-scratch-message "")
+(setq vc-follow-symlinks nil)
 
 ;;Setup packages Sites
 (require 'package)

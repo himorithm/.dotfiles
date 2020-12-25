@@ -494,6 +494,19 @@
  #+end_src
 
  #+RESULTS:
+*** Auto Save
+     #+begin_src emacs-lisp
+       (use-package super-save
+         :ensure t
+         :defer 1
+         :diminish super-save-mode
+         :config
+         (super-save-mode +1)
+         (setq super-save-auto-save-when-idle t))
+     #+end_src
+
+     #+RESULTS:
+
 
 ** Theme switch, enable, and disable Functions
   Switch and Disables any currently active themes and loads THEME.
@@ -567,8 +580,23 @@
 
 *** Use y and n 
     #+begin_src emacs-lisp
-    (defalias 'yes-or-no-p 'y-or-n-p)
+      (defalias 'yes-or-no-p 'y-or-n-p)
    #+end_src
+
+*** Follow Symlinks
+    #+begin_src emacs-lisp
+      (setq vc-follow-symlinks nil)
+    #+end_src
+
+    #+RESULTS:
+
+*** Tab Width and use spaces
+    #+begin_src emacs-lisp
+      (setq-default tab-width 2)
+      (setq-default evil-shift-width tab-width)
+      (setq-default indent-tabs-mode nil)
+    #+end_src
+
 
 *** Backup Directories 
     All Backup Directoreis in same folder
