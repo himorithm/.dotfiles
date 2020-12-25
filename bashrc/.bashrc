@@ -44,6 +44,8 @@ alias bc='bc -l'
 
 #Editor 
 alias vi=nvim
+alias vim=nvim
+alias v=nvim
 alias svi='sudo nvim'
 alias vis='nvim "+set si"'
 alias edit='nvim'
@@ -63,7 +65,7 @@ alias godwm="cd ~/work/suckless/dwm"
 alias downloads="cd /home/himanshu/media/Downloads/"
 alias todo="cd /home/himanshu/work/Documents/todo/"
 alias browseimages="feh  -g1920x1080+320+180 --draw-filename --borderless --auto-reload --auto-rotate --scale-down --preload -S filename -B black  -r "
-alias youtube-mp3='cd ~/media/Music/; youtube-dl --ignore-errors -x -f bestaudio[ext=mp3]' 
+alias youtube-mp3='cd ~/media/Music/; youtube-dl -x --audio-format mp3 --prefer-ffmpeg'
 alias sync-mobile-music='bash ~/work/scripts/upload_music.sh'
 
 PATH=".:$PATH:/home/himanshu/work/scripts:/home/himanshu/idea-IC-193.6494.35/bin"
@@ -94,7 +96,8 @@ export TERM=xterm-256color
 
 export GRADLE_USER_HOME="/home/himanshu/work/.gradle"
 export M2_REPO="/home/himanshu/work/.m2"
-#export FZF_DEFAULT_COMMAND='find * -type d \(  -path "*/\.*" -o -name "media" -o -name "gamemode" -o -name "elasticsearch" -o -name "native-client" -o -name "idea"  \) -prune -false -o -type f 2>/dev/null'
+#export FZF_DEFAULT_COMMAND=
+#find * -type d \(  -path "*/\.*" -o -name "media" -o -name "gamemode" -o -name "elasticsearch" -o -name "native-client" -o -name "idea"  \) -prune -false -o -type f 2>/dev/null
 
 #~/work/scripts/ufetch.sh
 

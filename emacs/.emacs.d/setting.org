@@ -1,4 +1,4 @@
-#+title: Emacs Configuration
++title: Emacs Configuration
 #+auther: Himanshu Ahire
 #+STARTUP: content
 
@@ -211,14 +211,30 @@
    #+end_src 
   
 *** Load Extra Language Babel
+
    #+begin_src emacs-lisp 
      (org-babel-do-load-languages
       'org-babel-load-languages
       '(
       (python . t)
+      (shell . t)
+      (ruby . t)
       ))
    #+end_src 
-    
+
+   #+RESULTS:
+
+*** Tmux
+    #+begin_src emacs-lisp
+      (use-package ob-tmux
+      :ensure t)
+      (setq org-babel-default-header-args:tmux
+        '((:results . "silent")		;
+          (tsession . "default")	; The default tmux session to send code to
+          (:socket  . nil)              ; The default tmux socket to communicate with
+          (:terminal . "xterm")))  
+    #+end_src
+
 *** Emacs Lisp
     #+begin_src emacs-lisp 
       (add-hook 'emacs-lisp-mode-hook 'eldoc-mode)
@@ -298,6 +314,18 @@
     #+RESULTS:
     : counsel-recentf
 
+*** Psychic Completion prescient
+   #+begin_src emacs-lisp
+     (use-package prescient
+       :ensure t)
+
+     (use-package ivy-prescient
+       :ensure t
+      :after counsel
+      :config
+      (ivy-prescient-mode 1))
+   #+end_src
+
 *** Magit package 
     #+begin_src emacs-lisp
     (use-package magit
@@ -342,6 +370,15 @@
     :ensure t)
     (evil-mode 1)
     #+end_src
+
+*** Babel
+    #+begin_src emacs-lisp
+    (use-package babel
+    :ensure t)
+    #+end_src
+
+    #+RESULTS:
+
 *** Org-mode package
     #+begin_src emacs-lisp
     (use-package org
@@ -350,13 +387,36 @@
     (add-to-list 'org-structure-template-alist
 	       '("el" "#+BEGIN_SRC emacs-lisp\n?\n#+END_SRC"))
     #+end_src
-**** Org Mode Activation bindings
-     #+begin_src emacs-lisp
-     (bind-key "C-c l" 'org-store-link)
-     (bind-key "C-c c" 'org-capture)
-     (bind-key "C-c a" 'org-agenda)
-     (bind-key "C-c C-;" 'org-edit-src-code)
-     #+end_src
+*** org-reveal
+   #+begin_src emacs-lisp
+    (use-package ox-reveal
+    :ensure t)
+
+    (setq org-reveal-root "file:///home/himanshu/work/code/reveal.js")
+   #+end_src
+
+   #+RESULTS:
+   : org-tree-slide-skip-done-toggle
+*** Htmlize Package
+    #+begin_src emacs-lisp
+    (use-package htmlize
+    :ensure t)
+    #+end_src
+*** tree mode
+   #+begin_src emacs-lisp
+   (use-package org-tree-slide
+   :ensure t)
+  #+end_src
+
+  #+RESULTS:
+
+*** Org Mode Activation bindings
+    #+begin_src emacs-lisp
+    (bind-key "C-c l" 'org-store-link)
+    (bind-key "C-c c" 'org-capture)
+    (bind-key "C-c a" 'org-agenda)
+    (bind-key "C-c C-;" 'org-edit-src-code)
+    #+end_src
 *** Yasnippet Package
     #+begin_src emacs-lisp
       (use-package yasnippet
@@ -374,7 +434,7 @@
       (add-hook 'emacs-lisp-mode-hook 'yas-minor-mode)
     #+end_src
 
-*** Terminal Window 
+*** TERMINAL WINDOW 
    #+begin_src emacs-lisp :tangle yes
      (defvar my-term-shell "/bin/bash")
      (defadvice ansi-term (before force-bash)
@@ -390,7 +450,6 @@
     (require 'org-superstar)
     (add-hook 'org-mode-hook (lambda () (org-superstar-mode 1)))
     #+end_src
-
 ** Theme switch, enable, and disable Functions
   Switch and Disables any currently active themes and loads THEME.
   #+begin_src emacs-lisp
