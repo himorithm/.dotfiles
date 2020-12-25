@@ -66,6 +66,23 @@
          (global-set-key "\C-c\C-i" 'my-insert-file-name)
 
 
+(setq-default tab-width 2)
+(setq-default evil-shift-width tab-width)
+(setq-default indent-tabs-mode nil)
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '(
+   (python . t)
+   (shell .  t)
+   (ruby  .  t)
+   (scala .  t)
+   (java  .  t)
+   ))
+
+;;Enable Prescient for Ivy
+;;
+(ivy-prescient-mode 1)
+
 ;; Here are some additional functions/macros that could help you configure Doom:
 ;;
 ;; - `load!' for loading external *.el files relative to this one
