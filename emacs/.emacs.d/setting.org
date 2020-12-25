@@ -295,8 +295,6 @@
     (bind-key "C-x C-r" 'counsel-recentf )
     #+end_src
 
-    #+RESULTS:
-    : counsel-recentf
 
 *** Magit package 
     #+begin_src emacs-lisp
@@ -469,9 +467,6 @@
     #+begin_src emacs-lisp
       (setq vc-follow-symlinks nil)
     #+end_src
-
-    #+RESULTS:
-
 *** Tab Width and use spaces
     #+begin_src emacs-lisp
       (setq-default tab-width 2)

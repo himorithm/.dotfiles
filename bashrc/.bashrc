@@ -29,6 +29,7 @@ alias code="cd ~/work/code"
 alias iknow="cd ~/work/iknow"
 alias steamlib="cd ~/media/SteamLibrary/"
 alias idea="nohup ~/media/idea-IC-193.6494.35/bin/idea.sh $@ > /dev/null 2>&1 & "
+
 # Git shortcutts 
 alias ga="git add ."
 alias gc="git commit -m "
@@ -75,7 +76,7 @@ alias youtube-mp3='cd ~/media/Music/; youtube-dl --ignore-errors -x -f bestaudio
 alias sync-mobile-music='bash ~/work/scripts/upload_music.sh'
 
 #Path
-PATH=".:$PATH:/home/himanshu/work/scripts:/home/himanshu/idea-IC-193.6494.35/bin"
+PATH=".:$PATH:/home/himanshu/work/scripts:/home/himanshu/.emacs.d/bin:/home/himanshu/idea-IC-193.6494.35/bin"
 export PATH 
 
 #Set vi option enable 
@@ -100,13 +101,6 @@ export _JAVA_AWT_WM_NONREPARTENTING=1
 export JAVA_HOME=/usr/lib/jvm/default
 export GRADLE_USER_HOME="/home/himanshu/work/.gradle"
 export M2_REPO="/home/himanshu/work/.m2"
-<<<<<<< HEAD
-=======
-#export FZF_DEFAULT_COMMAND='find * -type d \(  -path "*/\.*" -o -name "media" -o -name "gamemode" -o -name "elasticsearch" -o -name "native-client" -o -name "idea"  \) -prune -false -o -type f 2>/dev/null'
-
-#~/work/scripts/ufetch.sh
-
->>>>>>> parent of db44ee7 (Added changes to bashrc and starship)
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/home/himanshu/.sdkman"
